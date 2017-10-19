@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Button } from '@progress/kendo-buttons-react-wrapper';
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
-				<h1>FOOOOOOOOOOOOO</h1>
+                <h1>FOOOOOOOOOOOOO</h1>
             </div>
         );
     }
