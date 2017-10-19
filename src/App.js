@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 import MainMenu from './components/MainMenu';
 import Dashboard from './components/Dashboard';
 import Issues from './components/Issues';
@@ -12,10 +12,11 @@ class App extends Component {
   }
 
   render() {
+    const MainMenuRouter = withRouter(props => <MainMenu {...props} />);
     return (
       <div>
-        <MainMenu />
-        <div class="col-xs p-4 py-5">
+        <MainMenuRouter />
+        <div className="col-xs p-4 py-5">
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/issues" component={Issues}/>
         </div>
