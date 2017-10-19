@@ -3,6 +3,7 @@ import { Link, Route, withRouter } from 'react-router-dom';
 import MainMenu from './components/MainMenu';
 import Dashboard from './components/Dashboard';
 import Issues from './components/Issues';
+import Signin from './components/Signin';
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
         <div className="col-xs p-4 py-5">
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/issues" component={Issues}/>
+          <Route path="/signin" component={Signin}/>
         </div>
       </div>
     );

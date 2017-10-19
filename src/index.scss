@@ -5,8 +5,11 @@
 @import 'node_modules/@progress/kendo-theme-bootstrap/scss/all';
 @import 'src/dashboard.style';
 
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  margin:0;
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+  margin:40px;
 }
