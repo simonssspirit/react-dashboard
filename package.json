@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-buttons-react-wrapper": "^2017.3.1018",
+    "@progress/kendo-theme-bootstrap": "^2.8.3",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
@@ -40,9 +49,10 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.8.2",
     "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
