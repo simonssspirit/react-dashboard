@@ -208,7 +208,7 @@ module.exports = {
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
           {
-            test: /\.sass$/,
+            test: /\.scss$/,
             include: paths.appSrc,
             loaders: ["style-loader", "css-loader", "sass-loader"]
           },

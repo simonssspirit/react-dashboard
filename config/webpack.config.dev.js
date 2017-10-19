@@ -191,7 +191,7 @@ module.exports = {
             ],
           },
           {
-            test: /\.sass$/,
+            test: /\.scss$/,
             include: paths.appSrc,
             loaders: ["style-loader", "css-loader", "sass-loader"]
           },
