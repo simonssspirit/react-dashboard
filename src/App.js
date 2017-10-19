@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard'
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super();
+
+    console.log(props);
+  }
+
   render() {
     return (
-      <div className="App">
-		<Dashboard />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <nav>
+          <Link to="/dashboard">Dashboard</Link>
+        </nav>
+        <div>
+          <Route path="/dashboard" component={Dashboard}/>
+        </div>
       </div>
     );
   }
