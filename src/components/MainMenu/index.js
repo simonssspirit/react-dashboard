@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+
+import Dashboard from './../Dashboard';
+import IssuesContainer from './../Issues/IssuesContainer.js';
+import Signin from './../Signin';
 
 class MainMenu extends Component {
     constructor(props) {
@@ -44,7 +48,12 @@ class MainMenu extends Component {
                     </div >
                     : null
                 }
-            </div >
+                <div className="col-xs p-4 py-5">
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Route path="/issues" component={IssuesContainer}/>
+                    <Route path="/signin" component={Signin}/>
+                 </div>
+            </div>
             </div>
         );
     }

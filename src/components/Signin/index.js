@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Button } from '@progress/kendo-buttons-react-wrapper';
 
 class Dashboard extends Component {
-    constructor() {
-        super();
-    }
-
     login = () => {
         this.props.history.push('/dashboard');
     }
