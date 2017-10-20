@@ -12,6 +12,7 @@ class MainMenu extends Component {
 
     render() {
         return (
+            <div id="app" className="app container-fluid">
             <div className="row">
                 <div id="top-bar" className="top-bar col-xs-12 bg-inverse d-md-none"></div>
                 {
@@ -44,6 +45,7 @@ class MainMenu extends Component {
                     : null
                 }
             </div >
+            </div>
         );
     }
 }
