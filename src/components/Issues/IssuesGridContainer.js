@@ -2,30 +2,35 @@ import React, { Component } from 'react';
 import IssuesGrid from './IssuesGrid.js';
 
 import { connect } from 'react-redux';
-import { issuesReceived } from './../../actions';
+import { issuesFetched, issuesReceived } from './../../actions';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
 class IssuesGridContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.headers = {
+    componentDidMount() {
+        let headers = {
             // Generate your own token through
             // https://github.com/settings/tokens
 
             'Authorization': "token b95116792cba5a8169a1ec10640d8c16535c6419"
-        }
+        };
+
+        let url = baseUrl + '?state=all&page=2&per_page=100';
+
+        this.props.dispatch(issuesFetched());
+
+        return fetch(url, { method: 'GET', accept: 'application/json', headers: headers })
+            .then(response => response.json())
+            .then(json => this.props.dispatch(issuesReceived(json)));
     }
 
-    componentDidMount() {
-        debugger;
-        console.log('component did mount');
-        // let page = 2;
-        // const url = baseUrl + '?state=all&page=' + page + '&per_page=100';
-        // fetch(url, { method: 'get', accept: 'application/json', headers: this.headers })
-        //     .then(response => this.update(response), error => console.log(error));
+    render() {
+        return(
+            <IssuesGrid issues={this.props.issues}/>
+        )
     }
 }
+
 
 const mapStateToProps = (state) => {
     return {
@@ -33,5 +38,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-IssuesGridContainer = connect(mapStateToProps)(IssuesGrid);
+IssuesGridContainer = connect(mapStateToProps)(IssuesGridContainer);
 export default IssuesGridContainer;

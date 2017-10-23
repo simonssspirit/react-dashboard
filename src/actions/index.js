@@ -11,3 +11,9 @@ export const issuesReceived = (issues) => {
         payload: issues
     }
 }
+
+export const issuesFetched = () => {
+    return {
+        type: 'ISSUES_FETCHED'
+    }
+}
