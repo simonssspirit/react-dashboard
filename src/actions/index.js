@@ -4,3 +4,10 @@ export const periodChanged = (period) => {
         payload: period
     }
 };
+
+export const issuesReceived = (issues) => {
+    return {
+        type: 'ISSUES_RECEIVED',
+        payload: issues
+    }
+}
