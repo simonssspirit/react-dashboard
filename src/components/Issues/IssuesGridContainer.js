@@ -25,6 +25,8 @@ class IssuesGridContainer extends Component {
     }
 
     render() {
+        console.log('renders');
+        console.log(this.props.issues);
         return(
             <IssuesGrid issues={this.props.issues}/>
         )

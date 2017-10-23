@@ -6,6 +6,7 @@ export const periodChanged = (period) => {
 };
 
 export const issuesReceived = (issues) => {
+    console.log('issues received');
     return {
         type: 'ISSUES_RECEIVED',
         payload: issues
