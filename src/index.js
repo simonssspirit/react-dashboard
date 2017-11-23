@@ -7,8 +7,6 @@ import './index.scss';
 import { issuesStore } from "./store";
 import { Provider } from "react-redux";
 
-import '@progress/kendo-ui';
-
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((
