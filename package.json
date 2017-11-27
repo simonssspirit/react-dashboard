@@ -3,13 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@progress/kendo-react-animation": "file:///D:\\kendo-react-private\\packages\\animation",
-    "@progress/kendo-react-buttons": "file:///D:\\kendo-react-private\\packages\\buttons",
-    "@progress/kendo-react-dropdowns": "file:///D:\\kendo-react-private\\packages\\dropdowns",
-    "@progress/kendo-react-grid": "file:///D:\\kendo-react-private\\packages\\grid",
-    "@progress/kendo-react-inputs": "file:///D:\\kendo-react-private\\packages\\inputs",
-    "@progress/kendo-react-intl": "file:///D:\\kendo-react-private\\packages\\intl",
-    "@progress/kendo-react-popup": "file:///D:\\kendo-react-private\\packages\\popup",
+
     "@progress/kendo-theme-bootstrap": "^2.8.3",
     "bootstrap": "git://github.com/twbs/bootstrap.git#95f37e4c402df37db16781995ffa1592032df9c8",
     "react": "^16.0.0",
