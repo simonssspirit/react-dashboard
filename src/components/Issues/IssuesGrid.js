@@ -12,11 +12,25 @@ const cellWithTemplate = (Component) => {
 const IssuesGrid = (props) => {
     return(
         <Grid data={props.issues}>
-            <Column field="number" cell={cellWithTemplate(NumberCellTemplate)} />
-            <Column field="title" cell={cellWithTemplate(TitleCellTemplate)} />
-            <Column field="labels" cell={cellWithTemplate(LabelCellTemplate)} />
+            <Column field="number" title="ID" _width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
+            <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
+            <Column field="labels" title="Labels" _width="100px" cell={cellWithTemplate(LabelCellTemplate)} />
+            <Column field="milestone" title="Milestone" _width="150px" cell={cellWithTemplate(MilestoneCellTemplate)} />
+            <Column field="assignee" title="Assignee" cell={cellWithTemplate(AssigneeCellTemplate)} />
         </Grid>
     );
+}
+
+const AssigneeCellTemplate = (props) => {
+    if (!props.dataItem.assignee) {
+        return '';
+    }
+    let assignee = props.dataItem.assignee;
+    return <img src={assignee.avatar_url} style={{width: '30px', height: '30px'}} className='img-circle' />;{assignee.login};
+}
+
+const MilestoneCellTemplate = (props) => {
+    return props.dataItem.milestone ? props.dataItem.milestone.title : '';
 }
 
 const NumberCellTemplate = (props) => {
