@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '@progress/kendo-react-buttons';
 
 class Dashboard extends Component {
     login = () => {
@@ -11,7 +10,6 @@ class Dashboard extends Component {
                 <div className="signin-form p-5">
                     <h1 id="app-title">ISSUES</h1>
                     <p id="app-subtitle">SAMPLE DASHBOARD</p>
-
                     <div className="form-group mt-4">
                         <input type="text" className="form-control" placeholder="Email or Username" />
                     </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import MainMenu from './components/MainMenu';
 
-import logo from './logo.svg';
+/* import logo from './logo.svg'; */
 import './App.css';
 
 class App extends Component {
