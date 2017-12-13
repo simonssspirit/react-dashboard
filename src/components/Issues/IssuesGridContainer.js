@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IssuesGrid from './IssuesGrid.js';
 
 import { connect } from 'react-redux';
-import { issuesFetched, issuesReceived } from './../../actions';
+import { issuesFetched, issuesReceived, issuesDetails, issuesToggleExpand } from './../../actions';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
@@ -21,16 +21,22 @@ class IssuesGridContainer extends Component {
 
         return fetch(url, { method: 'GET', accept: 'application/json', headers: headers })
             .then(response => response.json())
-            .then(json => this.props.dispatch(issuesReceived(json)));
+            .then(json => {
+                this.props.dispatch(issuesReceived(json));
+                this.props.dispatch(issuesDetails(json));
+            });
+    }
+
+    expand(e) {
+        this.props.dispatch(issuesToggleExpand(e.dataItem));
     }
 
     render() {
         return(
-            <IssuesGrid issues={this.props.issues}/>
+            <IssuesGrid issues={this.props.issues} expand={this.expand.bind(this)}/>
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

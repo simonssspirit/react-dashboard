@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { ButtonGroup, Button } from '@progress/kendo-react-buttons';
 
 class Issues extends Component {

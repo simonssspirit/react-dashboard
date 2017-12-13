@@ -6,7 +6,8 @@ export const AssigneeCellTemplate = (props) => {
     }
     let assignee = props.dataItem.assignee;
      // eslint-disable-next-line
-    return <img src={assignee.avatar_url} style={{width: '30px', height: '30px'}} alt='img-circle' className='img-circle' />;{assignee.login};
+    let template = <label><img src={assignee.avatar_url} style={{width: '30px', height: '30px'}} alt='img-circle' className='img-circle' />{assignee.login}</label>
+    return template;
 }
 
 export const MilestoneCellTemplate = (props) => {
