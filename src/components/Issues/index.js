@@ -6,7 +6,7 @@ import IssuesGridContainer from './IssuesGridContainer';
 class IssuesIndex extends Component {
     render() {
         return (
-            <div>
+            <div className="issues" id="issues">
                 <IssuesContainer />
                 <IssuesGridContainer />
             </div>

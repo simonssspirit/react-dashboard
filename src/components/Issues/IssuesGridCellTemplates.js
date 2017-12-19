@@ -15,12 +15,12 @@ export const MilestoneCellTemplate = (props) => {
 }
 
 export const NumberCellTemplate = (props) => {
-    return <a href={props.dataItem.html_url}>{props.dataItem.number}</a>
+    return <a href={props.dataItem.html_url}>#{props.dataItem.number}</a>
 }
 
 export const TitleCellTemplate = (props) => {
     let classes = [props.dataItem.state === 'open' ? 'issue-open': 'issue-closed', 'issue-status'].join(' ');
-    return <span className={classes}>{props.dataItem.title}</span>
+    return [<span className={classes}></span>,props.dataItem.title]
 }
 
 export const LabelCellTemplate = (props) => {

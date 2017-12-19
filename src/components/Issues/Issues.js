@@ -8,7 +8,7 @@ class Issues extends Component {
 
     render() {
         return (
-            <div className="issues" id="issues">
+            <div>
                 <div className="row mb-4">
                     <div className="col-sm">
                         <h2>

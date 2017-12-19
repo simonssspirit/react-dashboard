@@ -9,11 +9,11 @@ class IssuesGrid extends React.Component {
     render() {
         return(
             <Grid data={this.props.issues} detail={RowDetailComponent} expandField="expanded" expandChange={this.props.expand}>
-                <Column field="number" title="ID" _width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
+                <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
                 <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
-                <Column field="labels" title="Labels" _width="100px" cell={cellWithTemplate(LabelCellTemplate)} />
-                <Column field="milestone" title="Milestone" _width="150px" cell={cellWithTemplate(MilestoneCellTemplate)} />
-                <Column field="assignee" title="Assignee" cell={cellWithTemplate(AssigneeCellTemplate)} />
+                <Column field="labels" title="Labels" cell={cellWithTemplate(LabelCellTemplate)} />
+                <Column field="milestone" title="Milestone" width="200px" cell={cellWithTemplate(MilestoneCellTemplate)} />
+                <Column field="assignee" title="Assignee" width="200px" cell={cellWithTemplate(AssigneeCellTemplate)} />
             </Grid>
         );
     }
