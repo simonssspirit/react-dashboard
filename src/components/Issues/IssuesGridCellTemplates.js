@@ -20,7 +20,7 @@ export const NumberCellTemplate = (props) => {
 
 export const TitleCellTemplate = (props) => {
     let classes = [props.dataItem.state === 'open' ? 'issue-open': 'issue-closed', 'issue-status'].join(' ');
-    return [<span className={classes}></span>,props.dataItem.title]
+    return <span><span className={classes}></span>{props.dataItem.title}</span>
 }
 
 export const LabelCellTemplate = (props) => {

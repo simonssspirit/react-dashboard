@@ -6,9 +6,43 @@ import { LabelCellTemplate, TitleCellTemplate, NumberCellTemplate, MilestoneCell
 import Markdown from './Markdown.js';
 
 class IssuesGrid extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state =  this.createState({ skip: 0, take: 10, issues: props.issues });
+    }
+
+    componentWillReceiveProps(nextProps, nextState) {
+        if (this.props.issues.length > 0) {
+            this.setState(this.createState({ skip: this.state.skip, take: 10, issues: this.props.issues }));
+        }
+    }
+
+    pageChange(e) {
+        this.setState(this.createState({skip: e.page.skip, take: e.page.take, issues: this.props.issues }));
+    }
+
+    createState(options) {
+        let skip = options.skip;
+        let take = options.take;
+        let issues = options.issues;
+
+        return {
+            items: issues.slice(skip, skip + take),
+            total: issues.length,
+            skip: skip,
+            pageSize: take
+        };
+    }
+
     render() {
         return(
-            <Grid data={this.props.issues} detail={RowDetailComponent} expandField="expanded" expandChange={this.props.expand}>
+            <Grid
+                data={this.state.items}
+                detail={RowDetailComponent}
+                expandField="expanded"
+                expandChange={this.props.expand}
+                pageChange={this.pageChange.bind(this)}
+                total={this.state.total} skip={this.state.skip} scrollable={'none'} pageable={true} pageSize={this.state.pageSize}>
                 <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
                 <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
                 <Column field="labels" title="Labels" cell={cellWithTemplate(LabelCellTemplate)} />

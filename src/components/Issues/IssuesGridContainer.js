@@ -7,6 +7,7 @@ import { issuesFetched, issuesReceived, issuesDetails, issuesToggleExpand } from
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
 class IssuesGridContainer extends Component {
+
     componentDidMount() {
         let headers = {
             // Generate your own token through
