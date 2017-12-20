@@ -31,3 +31,10 @@ export const issuesFetched = () => {
         type: 'ISSUES_FETCHED'
     }
 }
+
+export const issuesPageChange = (paging) => {
+    return {
+        type: 'ISSUES_PAGE_CHANGE',
+        ...paging
+    }
+}

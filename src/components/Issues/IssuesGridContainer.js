@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IssuesGrid from './IssuesGrid.js';
 
 import { connect } from 'react-redux';
-import { issuesFetched, issuesReceived, issuesDetails, issuesToggleExpand } from './../../actions';
+import { issuesFetched, issuesReceived, issuesDetails, issuesToggleExpand, issuesPageChange } from './../../actions';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
@@ -32,16 +32,35 @@ class IssuesGridContainer extends Component {
         this.props.dispatch(issuesToggleExpand(e.dataItem));
     }
 
+    page(e) {
+        this.props.dispatch(issuesPageChange(e.page));
+    }
+
     render() {
+        console.log(this.props);
         return(
-            <IssuesGrid issues={this.props.issues} expand={this.expand.bind(this)}/>
+            <IssuesGrid
+                issues={this.props.issues}
+                skip={this.props.skip}
+                take={this.props.take}
+                total={this.props.total}
+                pageSize={this.props.take}
+                expand={this.expand.bind(this)}
+                page={this.page.bind(this)} />
         )
     }
 }
 
 const mapStateToProps = (state) => {
+    let { skip, take } = state.issuesPaging;
+    let items = state.issues.slice(skip, skip + take);
+    let total = state.issues.length;
+
     return {
-        issues: state.issues
+        issues: items,
+        total: total,
+        skip,
+        take
     }
 }
 
