@@ -2,7 +2,7 @@ var initialState = {
     period: 3
 };
 
-export const period = (state = initialState, action) => {
+export const issuesPeriod = (state = initialState, action) => {
     if (action.type === 'PERIOD_CHANGED') {
         let period = action.payload;
         let newState = Object.assign({}, state);

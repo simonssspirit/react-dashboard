@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { period } from './period';
+import { issuesPeriod } from './issuesPeriod';
 import { issues } from './issues';
-import { issuesPaging } from './issues-paging';
+import { issuesPaging } from './issuesPaging';
 
-export const issuesDashboard = combineReducers({period, issues, issuesPaging});
+export const issuesDashboard = combineReducers({issues, issuesPeriod, issuesPaging});

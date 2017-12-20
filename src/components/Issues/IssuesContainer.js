@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    return state.period;
+    return state.issuesPeriod;
 }
 
 const IssuesContainer = connect(mapStateToProps, mapDispatchToProps)(Issues);
