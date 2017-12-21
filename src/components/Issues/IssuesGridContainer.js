@@ -9,9 +9,6 @@ const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 class IssuesGridContainer extends Component {
 
     componentDidMount() {
-
-
-
         let dispatcher = (data) => {
             this.props.dispatch(issuesReceived(data));
             this.props.dispatch(issuesDetails(data));
@@ -54,7 +51,6 @@ class IssuesGridContainer extends Component {
     }
 
     render() {
-        console.log(this.props);
         return(
             <IssuesGrid
                 issues={this.props.issues}

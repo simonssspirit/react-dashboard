@@ -1,6 +1,6 @@
 export const periodChanged = (period) => {
     return {
-        type: 'PERIOD_CHANGED',
+        type: 'ISSUES_PERIOD_CHANGED',
         payload: period
     }
 };
@@ -14,14 +14,14 @@ export const issuesReceived = (issues) => {
 
 export const issuesToggleExpand = (issues) => {
     return {
-        type: 'TOGGLE_EXPAND',
+        type: 'ISSUES_TOGGLE_EXPAND',
         payload: issues
     }
 }
 
 export const issuesDetails = (issues) => {
     return {
-        type: 'ISSUES_DETAILS',
+        type: 'ISSUES_COLLAPSE',
         payload: issues
     }
 }
