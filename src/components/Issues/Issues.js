@@ -47,9 +47,9 @@ class Issues extends Component {
                             {
                                 Issues.periods.map(p => <Button
                                     key={p} value={p}
-                                    onClick={this.changePeriod}
                                     selected={this.state.period === p}
                                     togglable={true}
+                                    onClick={this.changePeriod}
                                     >{`${p} Months`}
                                     </Button>)
                             }

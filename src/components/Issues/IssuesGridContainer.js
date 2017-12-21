@@ -9,6 +9,25 @@ const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 class IssuesGridContainer extends Component {
 
     componentDidMount() {
+
+
+
+        let dispatcher = (data) => {
+            this.props.dispatch(issuesReceived(data));
+            this.props.dispatch(issuesDetails(data));
+        };
+
+        this.props.dispatch(issuesFetched());
+
+        return Promise.all(this.getPageFetchers(2))
+            .then(responses => responses.map(res => res.json()))
+            .then(issues => Promise.all(issues))
+            .then(arraysOfData => arraysOfData.reduce((prev, current) => prev.concat(current)))
+            .then(result => dispatcher(result))
+    }
+
+    getPageFetchers(numberOfPages) {
+        let queue = [];
         let headers = {
             // Generate your own token through
             // https://github.com/settings/tokens
@@ -16,16 +35,14 @@ class IssuesGridContainer extends Component {
             'Authorization': "token b95116792cba5a8169a1ec10640d8c16535c6419"
         };
 
-        let url = baseUrl + '?state=all&page=2&per_page=100';
+        let options = { method: 'GET', accept: 'application/json', headers: headers };
 
-        this.props.dispatch(issuesFetched());
+        for (let page= 1; page <= numberOfPages; page++) {
+            let url = baseUrl + `?state=all&page=${page}&per_page=100'`;
+            queue.push(fetch(url, options));
+        }
 
-        return fetch(url, { method: 'GET', accept: 'application/json', headers: headers })
-            .then(response => response.json())
-            .then(json => {
-                this.props.dispatch(issuesReceived(json));
-                this.props.dispatch(issuesDetails(json));
-            });
+        return queue;
     }
 
     expand(e) {
