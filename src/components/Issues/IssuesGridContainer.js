@@ -7,7 +7,6 @@ import { issuesFetched, issuesReceived, issuesDetails, issuesToggleExpand, issue
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
 class IssuesGridContainer extends Component {
-
     componentDidMount() {
         let dispatcher = (data) => {
             this.props.dispatch(issuesReceived(data));
@@ -16,15 +15,15 @@ class IssuesGridContainer extends Component {
 
         this.props.dispatch(issuesFetched());
 
-        return Promise.all(this.getPageFetchers(2))
+        return Promise.all(this.getPageFetchers(10))
             .then(responses => responses.map(res => res.json()))
             .then(issues => Promise.all(issues))
             .then(arraysOfData => arraysOfData.reduce((prev, current) => prev.concat(current)))
-            .then(result => dispatcher(result))
+            .then(result => dispatcher(result));
     }
 
     getPageFetchers(numberOfPages) {
-        let queue = [];
+        let fetches = [];
         let headers = {
             // Generate your own token through
             // https://github.com/settings/tokens
@@ -34,12 +33,12 @@ class IssuesGridContainer extends Component {
 
         let options = { method: 'GET', accept: 'application/json', headers: headers };
 
-        for (let page= 1; page <= numberOfPages; page++) {
-            let url = baseUrl + `?state=all&page=${page}&per_page=100'`;
-            queue.push(fetch(url, options));
+        for (let page = 1; page <= numberOfPages; page++) {
+            let url = baseUrl + `?state=all&page=${page}&per_page=100`;
+            fetches.push(fetch(url, options));
         }
 
-        return queue;
+        return fetches;
     }
 
     expand(e) {
@@ -64,10 +63,16 @@ class IssuesGridContainer extends Component {
     }
 }
 
+const issuesInRange = (issue, from) => {
+    return (new Date(issue.created_at).getTime() > from.getTime());
+}
+
 const mapStateToProps = (state) => {
     let { skip, take } = state.issuesPaging;
-    let items = state.issues.slice(skip, skip + take);
-    let total = state.issues.length;
+    let periodStart = state.issuesPeriod.range.from;
+    let itemsInPeriod = state.issues.filter(issue => issuesInRange(issue, periodStart));
+    let items = itemsInPeriod.slice(skip, skip + take);
+    let total = itemsInPeriod.length;
 
     return {
         issues: items,
