@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '@progress/kendo-react-buttons';
 
 class Dashboard extends Component {
     render() {

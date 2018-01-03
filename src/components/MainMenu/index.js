@@ -4,6 +4,8 @@ import { Link, Route } from 'react-router-dom';
 import Dashboard from './../Dashboard';
 import IssuesIndex from './../Issues';
 import Signin from './../Signin';
+import Profile from './../Profile';
+import { withGithubUser, withGithubApi } from './../Github';
 
 class MainMenu extends Component {
     constructor(props) {
@@ -51,6 +53,7 @@ class MainMenu extends Component {
                 <div className="col-xs p-4 py-5">
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/issues" component={IssuesIndex}/>
+                    <Route path="/profile" component={withGithubApi(withGithubUser(Profile))}/>
                     <Route path="/signin" component={Signin}/>
                  </div>
             </div>

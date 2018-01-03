@@ -16,7 +16,7 @@ class Dashboard extends Component {
                     <div className="form-group mb-4">
                         <input type="password" className="form-control" placeholder="Password" />
                         <p className="text-xs-right small">
-                        <a href="#">Forgot it?</a>
+                        <a>Forgot it?</a>
                     </p>
                     </div>
                     <div className="form-group">

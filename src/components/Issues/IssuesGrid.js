@@ -6,10 +6,6 @@ import { LabelCellTemplate, TitleCellTemplate, NumberCellTemplate, MilestoneCell
 import Markdown from './Markdown.js';
 
 class IssuesGrid extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     pageChange(e) {
         this.props.page(e);
     }
@@ -35,12 +31,12 @@ class IssuesGrid extends React.Component {
 
 const RowDetailComponent = (props) => {
     let dataItem = props.dataItem;
-    let badgeClass = dataItem.state == 'open' ? 'badge-success' : 'badge-danger';
+    let badgeClass = dataItem.state === 'open' ? 'badge-success' : 'badge-danger';
     return (
         <div>
             <div className="row my-4">
                 <div className="col-sm-12">
-                    <span className="badge" className={badgeClass}>{dataItem.state }</span>
+                    <span className={`badge ${badgeClass}`}>{dataItem.state }</span>
                     <h3 className="h1">
                         { dataItem.title }
                         <span className="text-muted">#{ dataItem.number }</span>
@@ -69,7 +65,7 @@ const RowDetailComponent = (props) => {
                 { dataItem.assignee !== null ?
                     (<div className="col-sm-2">
                         <span className="small d-block text-muted">Assignee</span>
-                        <img src={dataItem.assignee? dataItem.assignee.avatar_url : undefined} style={{'width': '30px', 'height': '30px'}} className="img-circle" />
+                        <img alt="assignee" src={dataItem.assignee? dataItem.assignee.avatar_url : undefined} style={{'width': '30px', 'height': '30px'}} className="img-circle" />
                         { dataItem.assignee ? dataItem.assignee.login : '' }
                     </div>)
                 : null}
