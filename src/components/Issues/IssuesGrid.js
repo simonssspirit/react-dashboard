@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Column } from '@progress/kendo-react-grid';
+import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
 
 import { LabelCellTemplate, TitleCellTemplate, NumberCellTemplate, MilestoneCellTemplate, AssigneeCellTemplate } from './IssuesGridCellTemplates.js';
 
