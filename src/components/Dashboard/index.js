@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import HeaderContainer from './HeaderContainer';
 
 class Dashboard extends Component {
+    static periods = ["3","6","12"];
+
     render() {
         return (
             <div>
-                <h1>FOOOOOOOOOOOOO</h1>
+                <HeaderContainer />
             </div>
         );
     }

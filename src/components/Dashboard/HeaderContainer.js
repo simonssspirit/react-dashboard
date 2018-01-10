@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         ...state.issuesPeriod,
-        name: 'Issues'
+        name: 'Statistics'
     }
 }
 

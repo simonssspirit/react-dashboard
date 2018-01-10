@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Button } from '@progress/kendo-react-buttons'
+import { Popup } from '@progress/kendo-react-popup';
+import { Switch } from '@progress/kendo-inputs-react-wrapper';
 
 class Profile extends Component {
     componentDidMount() {
@@ -33,7 +36,7 @@ class Profile extends Component {
                         </h2>
                     </div>
                     <div className="col-sm text-sm-right">
-                        <button className="btn btn-secondary">Sign out</button>
+                        <Button>Sign out</Button>
                     </div>
                 </div>
             </div>
@@ -97,18 +100,46 @@ class Profile extends Component {
                 </div>
 
                 <div className="col-md-5">
+
                     <div className="card" id="notifications">
                         <h3 className="card-header">Notifications</h3>
                         <div className="card-block">
                             <h4 className="h6">Automatically watch repositories?</h4>
                             <p className="text-muted">When you are given push access to a repository, automatically receive notifications for it.</p>
-                            {/* <p><kendo-switch></kendo-switch></p>
+                            <p>
+                                <Switch></Switch>
+                            </p>
                             <h4 className="h6">Receive updates to any conversations via email?</h4>
-                            <p><kendo-switch [checked]="true"></kendo-switch></p>
+                            <p>
+                                <Switch checked={true}></Switch>
+                            </p>
                             <h4 className="h6">Receive updates to any repositories via email?</h4>
-                            <p><kendo-switch [checked]="true"></kendo-switch></p> */}
+                            <p>
+                                <Switch checked={true}></Switch>
+                            </p>
                         </div>
                     </div>
+                    <div className="card" id="password">
+                        <h3 className="card-header">Update password</h3>
+                        <div className="card-block">
+                            <div className="form-group">
+                                <label className="h6">Old password</label>
+                                <input type="password" className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <label className="h6">New password</label>
+                                <input type="password" className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <label className="h6">Confirm password</label>
+                                <input type="password" className="form-control" />
+                            </div>
+                            <div className="form-group">
+                            <button className="btn btn-secondary">Change password</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

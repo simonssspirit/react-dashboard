@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-inputs-react-wrapper": "^2017.3.1124",
     "@progress/kendo-react-animation": "^0.1.2",
     "@progress/kendo-react-buttons": "^0.1.2",
     "@progress/kendo-react-dateinputs": "^0.1.2",
@@ -12,6 +13,7 @@
     "@progress/kendo-react-intl": "^0.1.2",
     "@progress/kendo-react-popup": "^0.1.2",
     "@progress/kendo-theme-bootstrap": "^2.8.3",
+    "@progress/kendo-ui": "^2017.3.1116",
     "bootstrap": "git://github.com/twbs/bootstrap.git#95f37e4c402df37db16781995ffa1592032df9c8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
