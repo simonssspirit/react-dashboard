@@ -17,9 +17,11 @@ class Profile extends Component {
     }
 
     onUpdateClick() {
+
     }
 
     onDeleteClick() {
+
     }
 
     render() {
@@ -50,36 +52,36 @@ class Profile extends Component {
 
                             <div className="row">
                                 <div className="col-md-3 text-xs-center">
-                                    <img src={this.state.avatar_url} style={{'max-width': '100%'}} className="img-circle mx-auto" />
+                                    <img src={this.state.avatar_url} style={{'maxWidth': '100%'}} className="img-circle mx-auto" />
                                 </div>
                                 <div className="col-md-9">
                                     <div className="form-group">
                                         <label className="h6">Username</label>
-                                        <input type="text" id="username" className="form-control" value={this.state.login} />
+                                        <input type="text" id="username" className="form-control" defaultValue={this.state.login} />
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Name</label>
-                                        <input type="text" id="name" className="form-control" value={this.state.name} />
+                                        <input type="text" id="name" className="form-control" defaultValue={this.state.name} />
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Email</label>
-                                        <input type="email" id="email" className="form-control" value={this.state.email} />
+                                        <input type="email" id="email" className="form-control" defaultValue={this.state.email} />
                                     </div>
                                     <div className="form-group">
                                         <label className="form-check-label h6">
-                                            <input type="checkbox" className="form-check-input" checked /> Keep my email address private
+                                            <input type="checkbox" className="form-check-input" defaultChecked /> Keep my email address private
                                         </label>
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Company</label>
-                                        <input type="text" id="company" className="form-control" value={this.state.company} />
+                                        <input type="text" id="company" className="form-control" defaultValue={this.state.company} />
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Location</label>
-                                        <input type="text" id="location" className="form-control" value={this.state.location} />
+                                        <input type="text" id="location" className="form-control" defaultValue={this.state.location} />
                                     </div>
                                     <div className="form-group">
-                                        <button className="btn btn-primary" click={this.onUpdateClick}>Update profile</button>
+                                        <button className="btn btn-primary" onClick={this.onUpdateClick}>Update profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +95,7 @@ class Profile extends Component {
                             <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                             </p>
-                            <button className="btn btn-danger" click={this.onDeleteClick}>Delete Account</button>
+                            <button className="btn btn-danger" onClick={this.onDeleteClick}>Delete Account</button>
                         </div>
                     </div>
 
