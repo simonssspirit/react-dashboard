@@ -5,7 +5,7 @@ export const issues = (state = initialState, action) => {
         let issues = action.payload;
         let newState = issues.filter(issue => issue.pull_request ? false : true);
         return newState;
-    } else if(action.type ==='ISSUES_COLLAPSE') {
+    } else if(action.type ==='ISSUES_COLLAPSED') {
         let issues = action.payload;
         let newState = issues.map(issue => { let iss = Object.assign({}, issue); iss.expanded = false; return iss; });
         return newState;

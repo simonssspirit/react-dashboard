@@ -18,5 +18,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const IssuesContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
-export default IssuesContainer;
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
+export default HeaderContainer;

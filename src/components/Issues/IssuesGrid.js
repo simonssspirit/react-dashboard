@@ -1,24 +1,17 @@
 import React from 'react';
 import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
-
 import { LabelCellTemplate, TitleCellTemplate, NumberCellTemplate, MilestoneCellTemplate, AssigneeCellTemplate } from './IssuesGridCellTemplates.js';
-
 import Markdown from './Markdown.js';
 
-class IssuesGrid extends React.Component {
-    pageChange(e) {
-        this.props.page(e);
-    }
-
-    render() {
-        return(
+const IssuesGrid = (props) => {
+        return (
             <Grid
-                data={this.props.issues}
+                data={props.issues}
                 detail={RowDetailComponent}
                 expandField="expanded"
-                expandChange={this.props.expand}
-                pageChange={this.pageChange.bind(this)}
-                total={this.props.total} skip={this.props.skip} scrollable={'none'} pageable={true} pageSize={this.props.pageSize}>
+                expandChange={props.expand}
+                pageChange={ props.page}
+                total={props.total} skip={props.skip} scrollable={'none'} pageable={true} pageSize={props.pageSize}>
                 <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
                 <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
                 <Column field="labels" title="Labels" cell={cellWithTemplate(LabelCellTemplate)} />
@@ -26,7 +19,6 @@ class IssuesGrid extends React.Component {
                 <Column field="assignee" title="Assignee" width="200px" cell={cellWithTemplate(AssigneeCellTemplate)} />
             </Grid>
         );
-    }
 }
 
 const RowDetailComponent = (props) => {

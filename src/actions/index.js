@@ -21,7 +21,7 @@ export const issuesToggleExpand = (issues) => {
 
 export const issuesDetails = (issues) => {
     return {
-        type: 'ISSUES_COLLAPSE',
+        type: 'ISSUES_COLLAPSED',
         payload: issues
     }
 }
