@@ -3,8 +3,16 @@ export const issuesInRange = (issue, from) => {
 }
 
 export const groupIssues= (issues) => {
-    return issues.reduce((acc, curr) => {
-        acc[curr.state].push(curr);
-        return acc;
-    });
+    if (issues.length == 0) {
+        return [];
+    }
+
+    let grouped = {
+        open: [],
+        closed: []
+    }
+
+
+
+    return grouped;
 }

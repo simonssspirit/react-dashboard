@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HeaderContainer from './HeaderContainer';
+import ChartsContaner from './ChartsContaner';
 
 class Dashboard extends Component {
     static periods = ["3","6","12"];
@@ -8,6 +9,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <HeaderContainer />
+                <ChartsContaner />
             </div>
         );
     }

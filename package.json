@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-charts-react-wrapper": "^2017.3.1124",
     "@progress/kendo-inputs-react-wrapper": "^2017.3.1124",
     "@progress/kendo-react-animation": "^0.1.2",
     "@progress/kendo-react-buttons": "^0.1.2",

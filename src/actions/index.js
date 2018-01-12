@@ -32,6 +32,13 @@ export const issuesFetched = () => {
     }
 }
 
+export const groupIssues = (issues) => {
+    return {
+        type: 'GROUP_ISSUES',
+        payload: issues
+    }
+}
+
 export const issuesPageChange = (paging) => {
     return {
         type: 'ISSUES_PAGE_CHANGE',

@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import Statistics from './Statistics';
 
-import { issuesInRange, groupIssues } from './../../lib/issues';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    return state;
+    return {
+        groupedIssues:  state.groupedIssues,
+        months: state.issuesPeriod,
+        issues: state.issues,
+        closeRate: 5,
+        active: state.issues
+    };
 }
 
-const ChartsContainer = connect()(Statistics);
+// data={this.props.issues.groupedIssues}
+// months={this.props.months}
+// issues={this.props.issues}
+// closeRate={this.props.issues.closeRate.average}
+// active={this.props.issues.active}
+
+const ChartsContainer = connect(mapStateToProps)(Statistics);
+export default ChartsContainer;
