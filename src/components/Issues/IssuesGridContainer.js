@@ -6,21 +6,6 @@ import { issuesToggleExpand, issuesPageChange } from './../../actions';
 
 import { issuesInRange } from './../../lib/issues';
 
-class IssuesGridContainer extends Component {
-    render() {
-        return(
-            <IssuesGrid
-                issues={this.props.issues}
-                skip={this.props.skip}
-                take={this.props.take}
-                total={this.props.total}
-                pageSize={this.props.take}
-                expand={this.props.onToggleExpand}
-                page={this.props.onIssuesPageChange} />
-        )
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onToggleExpand: (e) => dispatch(issuesToggleExpand(e.dataItem)),
@@ -37,11 +22,12 @@ const mapStateToProps = (state) => {
 
     return {
         issues: items,
-        total: total,
         skip,
-        take
+        take,
+        total: total,
+        pageSize: take
     }
 }
 
-IssuesGridContainer = connect(mapStateToProps)(IssuesGridContainer);
+const IssuesGridContainer = connect(mapStateToProps, mapDispatchToProps)(IssuesGrid);
 export default IssuesGridContainer;

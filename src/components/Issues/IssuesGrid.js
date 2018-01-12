@@ -9,8 +9,8 @@ const IssuesGrid = (props) => {
                 data={props.issues}
                 detail={RowDetailComponent}
                 expandField="expanded"
-                expandChange={props.expand}
-                pageChange={ props.page}
+                expandChange={props.onToggleExpand}
+                pageChange={ props.onIssuesPageChange}
                 total={props.total} skip={props.skip} scrollable={'none'} pageable={true} pageSize={props.pageSize}>
                 <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
                 <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
