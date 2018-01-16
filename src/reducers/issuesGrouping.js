@@ -4,7 +4,6 @@ let initialState = {
 }
 
 export const groupedIssues = (state = initialState, action) => {
-    console.log(action.type);
     if (action.type === 'GROUP_ISSUES') {
         let issues = action.payload;
         let newState = { open: [], closed: [] }
