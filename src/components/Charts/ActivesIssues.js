@@ -25,9 +25,7 @@ const ActiveIssues = (props) => {
                             categoryAxis={categoryAxis}
                             valueAxis={valueAxis}
                             >
-
                         </Chart>
-
                     </div>
 
                 </div>

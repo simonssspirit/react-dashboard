@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ActiveIssues from './../Charts/ActivesIssues';
+import IssuesTypes from './../Charts/IssuesTypes';
 
 const Statistics = (props) => {
     const { dispatch } = props;
@@ -15,12 +16,12 @@ const Statistics = (props) => {
                 active={props.active}
             />
         </div>
-        {/* <div className="col-md-4">
-            <issue-types [data]="issues.issueTypes"></issue-types>
+        <div className="col-md-4">
+            <IssuesTypes data={props.issuesTypes} />
         </div>
-        <div className="col-md-8">
-            <types-distribution [data]="issues.typesDistribution" [months]="months" *ngIf="issues.active.length"></types-distribution>
-        </div> */}
+        {/* <div className="col-md-8">
+           <types-distribution [data]="issues.typesDistribution" [months]="months" *ngIf="issues.active.length"></types-distribution>
+        </div>  */}
         </div>
     );
 }

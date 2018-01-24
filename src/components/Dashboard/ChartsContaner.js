@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Statistics from './Statistics';
-import { mapIssue } from './../../lib/issues';
+import { mapIssue, groupLabels } from './../../lib/issues';
 
 import { connect } from 'react-redux';
 
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
         groupedIssues:  state.groupedIssues,
         months: state.issuesPeriod,
         issues: mappedIssues,
+        issuesTypes: groupLabels(mappedIssues),
         closeRate: 5,
         active: mappedIssues
     };
