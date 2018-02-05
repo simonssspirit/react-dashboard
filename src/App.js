@@ -9,10 +9,15 @@ import './App.css';
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
   componentDidMount() {
     const { dispatch } = this.props;
 
     let dispatcher = (data) => {
+        this.setState({loading: false });
         dispatch(issuesReceived(data));
         dispatch(issuesDetails(data));
     };
@@ -49,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MainMenu {...this.props} />
+        {this.state.loading ? <span className="k-icon k-i-loading"></span> : <MainMenu {...this.props} /> }
       </div>
     );
   }
