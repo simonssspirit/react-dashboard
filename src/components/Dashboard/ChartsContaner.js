@@ -19,11 +19,5 @@ const mapStateToProps = (state) => {
     };
 }
 
-// data={this.props.issues.groupedIssues}
-// months={this.props.months}
-// issues={this.props.issues}
-// closeRate={this.props.issues.closeRate.average}
-// active={this.props.issues.active}
-
 const ChartsContainer = connect(mapStateToProps)(Statistics);
 export default ChartsContainer;

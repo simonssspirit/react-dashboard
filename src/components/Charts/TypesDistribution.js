@@ -71,7 +71,8 @@ class TypesDistribution extends Component {
                     }
                 </div>
                 <div className="card-block">
-                    <Chart style={{height: '300px'}} transitions="false"
+                    <Chart chartArea={{height: '300px'}}
+                        transitions={false}
                         seriesDefaults={seriesDefaults}
                         categoryAxis={categoryAxis}
                         series={series}

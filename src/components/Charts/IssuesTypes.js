@@ -28,7 +28,6 @@ class IssuesTypes extends Component {
             <div className="card issue-types">
                 <h4 className="card-header">Issue Types</h4>
                     <div className="card-block">
-
                     <IssuesTypeChart data={this.props.data} seriesHover={this.seriesHover} />
                     <div className="comp-label chart-label" style={{color: this.state.hoverColor}}>
                         <strong>{this.state.donutPercent}</strong>

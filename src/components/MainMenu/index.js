@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 import Dashboard from './../Dashboard';
 import IssuesIndex from './../Issues';
@@ -10,6 +10,7 @@ import { withGithubUser, withGithubApi } from './../Github';
 class MainMenu extends Component {
     constructor(props) {
         super();
+        console.log(props);
         this.state = {
             showNav: props.location.pathname !== '/signin',
             year: (new Date()).getFullYear()
@@ -31,19 +32,19 @@ class MainMenu extends Component {
                         <p className="h4 mt-5">Project</p>
                         <ul className="nav nav-pills flex-column">
                             <li className="nav-item" id="dashbaord">
-                                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                                <NavLink to="/dashboard" className="nav-link" activeClassName="active">Dashboard</NavLink>
                             </li>
                             <li className="nav-item" id="issues">
-                                <Link to="/issues" className="nav-link">Issues</Link>
+                                <NavLink to="/issues" className="nav-link" activeClassName="active">Issues</NavLink>
                             </li>
                         </ul>
                         <p className="h4 mt-5">Account</p>
                         <ul className="nav nav-pills flex-column">
                             <li className="nav-item" id="profile">
-                                <Link to="/profile" className="nav-link">My Profile</Link>
+                                <NavLink to="/profile" className="nav-link" activeClassName="active">My Profile</NavLink>
                             </li>
                             <li className="nav-item" id="signout">
-                                <Link to="/signin" className="nav-link">Sign Out</Link>
+                                <NavLink to="/signin" className="nav-link" activeClassName="active">Sign Out</NavLink>
                             </li>
                         </ul>
                         <hr className="k-flex" />
@@ -55,10 +56,10 @@ class MainMenu extends Component {
                     : null
                 }
                 <div className="col-xs p-4 py-5">
-                    <Route path="/dashboard" component={Dashboard}/>
-                    <Route path="/issues" component={IssuesIndex}/>
-                    <Route path="/profile" component={withGithubApi(withGithubUser(Profile))}/>
-                    <Route path="/signin" component={Signin}/>
+                    <Route path="/dashboard" component={Dashboard} />
+                    <Route path="/issues" component={IssuesIndex} />
+                    <Route path="/profile" component={withGithubApi(withGithubUser(Profile))} />
+                    <Route path="/signin" component={Signin} />
                  </div>
             </div>
             </div>

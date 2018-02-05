@@ -16,7 +16,6 @@ const Statistics = (props) => {
             <IssuesTypes data={props.issuesTypes} />
         </div>
         <div className="col-md-8">
-        *ngIf="issues.active.length
             <TypesDistribution data={props.typesDistribution} months="months" />
         </div>
         </div>
