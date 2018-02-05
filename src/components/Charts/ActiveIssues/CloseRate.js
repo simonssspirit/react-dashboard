@@ -4,8 +4,6 @@ import { Chart } from '@progress/kendo-charts-react-wrapper';
 const CloseRate = (props) => {
     const series = [{ type: 'bullet', taget: {color: '#FFF'},data: props.bulletData, currentField: 'current', targetField: 'target', color: '#CC3458'}]
     const categoryAxis = [{plotBands: [{from: 0, to:100, color: '#35C473'}]}];
-    const closeRate = props.closeRate.average;
-    const bulletData = [{target: 70, current: Math.round(closeRate * 100)}];
     const formatp = (number) => {
         return Intl.NumberFormat(navigator.language, {style: 'percent'}).format(number);
     };
@@ -14,7 +12,7 @@ const CloseRate = (props) => {
         if (!date) {
             return '';
         }
-        return new Date(parseInt(date)).toDateString();
+        return new Date(parseInt(date, 10)).toDateString();
     }
 
     return (
@@ -42,24 +40,5 @@ const CloseRate = (props) => {
         </div>
     );
 };
-
-// <kendo-chart style="height: 20px;" [chartArea]="{margin: -20}">
-// <kendo-chart-series>
-//     <kendo-chart-series-item type="bullet"
-//         [data]="bulletData"
-//         [target]="{color: '#FFF'}"
-//         currentField="current"
-//         targetField="target"
-//         color="#CC3458"
-//     ></kendo-chart-series-item>
-// </kendo-chart-series>
-// <kendo-chart-value-axis>
-//     <kendo-chart-value-axis-item
-//         [plotBands]="[{from:0, to:100, color: '#35C473'}]"
-//         [visible]="false"
-//         [majorGridLines]="{visible: false}">
-//     </kendo-chart-value-axis-item>
-// </kendo-chart-value-axis>
-// </kendo-chart>
 
 export default CloseRate;

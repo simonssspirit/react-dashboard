@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ActiveIssuesDash from './../Charts/ActiveIssues';
 import IssuesTypes from './../Charts/IssuesTypes';
 import TypesDistribution from './../Charts/TypesDistribution';
 
 const Statistics = (props) => {
-    const { dispatch } = props;
     return (
         <div className="row">
         <div className="col-md-12">

@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import Statistics from './Statistics';
 import { mapIssue, groupLabels, distribution, groupIssues, closeRate } from './../../lib/issues';
 

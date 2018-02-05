@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import IssuesGrid from './IssuesGrid.js';
 
 import { connect } from 'react-redux';

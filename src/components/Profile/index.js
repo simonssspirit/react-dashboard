@@ -5,7 +5,6 @@ import { Switch } from '@progress/kendo-inputs-react-wrapper';
 
 class Profile extends Component {
     componentDidMount() {
-        console.log('profile mounted');
         let url = this.props.gitUserApiUrl;
         let options = this.props.gitOptions;
 
@@ -52,7 +51,7 @@ class Profile extends Component {
 
                             <div className="row">
                                 <div className="col-md-3 text-xs-center">
-                                    <img src={this.state.avatar_url} style={{'maxWidth': '100%'}} className="img-circle mx-auto" />
+                                    <img src={this.state.avatar_url} alt="Avatar URL" style={{'maxWidth': '100%'}} className="img-circle mx-auto" />
                                 </div>
                                 <div className="col-md-9">
                                     <div className="form-group">

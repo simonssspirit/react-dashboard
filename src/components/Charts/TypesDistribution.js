@@ -19,7 +19,7 @@ class TypesDistribution extends Component {
                 markers: { visible: false },
                 data: this.props.data[series.label]
             };
-        }).bind(this);
+        })
 
         this.state = {
             initialGrey: '#A2ACAC',
