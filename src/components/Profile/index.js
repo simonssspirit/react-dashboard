@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Button } from '@progress/kendo-react-buttons'
+import { Button } from '@progress/kendo-react-buttons';
 import { Popup } from '@progress/kendo-react-popup';
+import { Dialog } from '@progress/kendo-dialog-react-wrapper';
 import { Switch } from '@progress/kendo-inputs-react-wrapper';
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showAskDelete: false,
+            showProfileUpdate: false
+        }
+
+        this.onDeleteClick = this.onDeleteClick.bind(this);
+        this.onUpdateClick = this.onUpdateClick.bind(this);
+    }
+
     componentDidMount() {
         let url = this.props.gitUserApiUrl;
         let options = this.props.gitOptions;
@@ -16,14 +28,23 @@ class Profile extends Component {
     }
 
     onUpdateClick() {
+        this.setState((prevState, props) => ({
+                showProfileUpdate: !prevState.showProfileUpdate
+            })
+        );
 
     }
 
     onDeleteClick() {
-
+        console.log('delete click');
+        this.setState({
+            showAskDelete: true
+        });
     }
 
     render() {
+        console.log('render');
+        console.log(this.state);
         return (
             this.state &&
         <div>
@@ -41,7 +62,9 @@ class Profile extends Component {
                     </div>
                 </div>
             </div>
-
+            <Dialog title="Delete" minWidth={250} width={450} visible={this.state.showAskDelete} actions={[{text:'Yes',primary:true},{text:'No'}]}>
+                <h1>FOO</h1>
+            </Dialog>
             <div className="row">
                 <div className="col-md-7">
 
