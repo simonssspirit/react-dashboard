@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Redirect } from 'react-router-dom';
 
 import Dashboard from './../Dashboard';
 import IssuesIndex from './../Issues';
@@ -10,11 +10,13 @@ import { withGithubUser, withGithubApi } from './../Github';
 class MainMenu extends Component {
     constructor(props) {
         super();
-        console.log(props);
         this.state = {
             showNav: props.location.pathname !== '/signin',
             year: (new Date()).getFullYear()
         }
+    }
+
+    componentWillMount() {
     }
 
     render() {
@@ -56,6 +58,7 @@ class MainMenu extends Component {
                     : null
                 }
                 <div className="col-xs p-4 py-5">
+                    {this.props.location.pathname === '/' ? <Redirect from="/" to="/dashboard" /> : null }
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/issues" component={IssuesIndex} />
                     <Route path="/profile" component={withGithubApi(withGithubUser(Profile))} />
