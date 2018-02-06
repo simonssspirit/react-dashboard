@@ -20,6 +20,7 @@ class MainMenu extends Component {
     }
 
     render() {
+        const root = process.env.PUBLIC_URL + '/';
         return (
             <div id="app" className="app container-fluid">
             <div className="row">
@@ -58,8 +59,8 @@ class MainMenu extends Component {
                     : null
                 }
                 <div className="col-xs p-4 py-5">
-                    {this.props.location.pathname === '/' ? <Redirect from="/" to="/dashboard" /> : null }
-                    <Route path="/dashboard" component={Dashboard} />
+                    {this.props.location.pathname === root ? <Redirect from={root} to={root + 'dashboard'} /> : null }
+                    <Route path={root + 'dashboard'} component={Dashboard} />
                     <Route path="/issues" component={IssuesIndex} />
                     <Route path="/profile" component={withGithubApi(withGithubUser(Profile))} />
                     <Route path="/signin" component={Signin} />
