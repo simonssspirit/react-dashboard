@@ -1,7 +1,14 @@
-# This is a Kendo UI for React showcase application.
+# Kendo UI for React showcase application.
 
-To get started:
+> This application shows an example of how one can use Kendo UI for React in react/redux scenario.
 
-1. npm install
-2. npm run build 
-3. serve -s build
+## Build Setup
+
+
+```bash
+# install dependencies
+npm install
+# serve with hot reload at localhost:3000
+npm start
+# build for production with minification
+npm run build
