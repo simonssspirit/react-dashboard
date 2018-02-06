@@ -36,15 +36,12 @@ class Profile extends Component {
     }
 
     onDeleteClick() {
-        console.log('delete click');
         this.setState({
             showAskDelete: true
         });
     }
 
     render() {
-        console.log('render');
-        console.log(this.state);
         return (
             this.state &&
         <div>
