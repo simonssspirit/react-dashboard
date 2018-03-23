@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from '@progress/kendo-react-buttons';
 import { Popup } from '@progress/kendo-react-popup';
 import { Dialog } from '@progress/kendo-dialog-react-wrapper';
-import { Switch } from '@progress/kendo-inputs-react-wrapper';
+import { Switch } from '@progress/kendo-react-inputs';
 
 class Profile extends Component {
     constructor(props) {
@@ -132,11 +132,11 @@ class Profile extends Component {
                             </p>
                             <h4 className="h6">Receive updates to any conversations via email?</h4>
                             <p>
-                                <Switch checked={true}></Switch>
+                                <Switch defaultChecked={true}></Switch>
                             </p>
                             <h4 className="h6">Receive updates to any repositories via email?</h4>
                             <p>
-                                <Switch checked={true}></Switch>
+                                <Switch defaultChecked={true}></Switch>
                             </p>
                         </div>
                     </div>
