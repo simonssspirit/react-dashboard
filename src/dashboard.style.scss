@@ -204,7 +204,7 @@ main {
 .dashboard {
 	display: block;
 
-	.card-block {
+	.card-body {
 		position: relative;
 	}
 
@@ -266,7 +266,7 @@ main {
 	.issue-types {
 		overflow: hidden;
 	}
-	.issue-types .card-block {
+	.issue-types .card-body {
 		max-width: 100%;
 	}
 	.issue-types .chart-label {

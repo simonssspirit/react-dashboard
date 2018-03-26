@@ -14,10 +14,10 @@ class Header extends Component {
             <div>
                 <div className="row mb-4">
                     <div className="col-sm">
-                        <h2>
+                        <h5>
                             <span className="small text-uppercase text-muted d-block">{this.props.name}</span>
                             { [this.props.range.from.toDateString(), ' - ', this.props.range.to.toDateString()] }
-                        </h2>
+                        </h5>
                     </div>
                     <div className="col-sm text-sm-right">
                         <ButtonGroup>

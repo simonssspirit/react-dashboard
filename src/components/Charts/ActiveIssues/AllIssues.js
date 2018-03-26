@@ -22,7 +22,7 @@ const AllIssues = (props) => {
 
     return (
         <div className="col-sm-12">
-            <h3>All issues</h3>
+            <h5>All issues</h5>
             <Chart
                 seriesDefaults={seriesDefault}
                 series={series}

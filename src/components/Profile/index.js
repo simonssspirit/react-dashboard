@@ -67,7 +67,7 @@ class Profile extends Component {
 
                     <div className="card" id="profile">
                         <h3 className="card-header">Public Profile</h3>
-                        <div className="card-block">
+                        <div className="card-body">
 
                             <div className="row">
                                 <div className="col-md-3 text-xs-center">
@@ -110,7 +110,7 @@ class Profile extends Component {
 
                     <div className="card" id="delete-account">
                         <h3 className="card-header">Delete Account</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                             </p>
@@ -124,7 +124,7 @@ class Profile extends Component {
 
                     <div className="card" id="notifications">
                         <h3 className="card-header">Notifications</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <h4 className="h6">Automatically watch repositories?</h4>
                             <p className="text-muted">When you are given push access to a repository, automatically receive notifications for it.</p>
                             <p>
@@ -142,7 +142,7 @@ class Profile extends Component {
                     </div>
                     <div className="card" id="password">
                         <h3 className="card-header">Update password</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <div className="form-group">
                                 <label className="h6">Old password</label>
                                 <input type="password" className="form-control" />

@@ -60,7 +60,7 @@ class TypesDistribution extends Component {
         return (
             <div className="card">
                 <h4 className="card-header">Types Distribution</h4>
-                <div className="row card-block pb-0 small">
+                <div className="row card-body pb-0 small">
                     {
                         this.state.seriesColors.map(button =>
                             <a
@@ -75,7 +75,7 @@ class TypesDistribution extends Component {
 
                     }
                 </div>
-                <div className="card-block">
+                <div className="card-body">
                     <Chart chartArea={{ height: '300px' }}
                         transitions={false}
                         seriesDefaults={seriesDefaults}

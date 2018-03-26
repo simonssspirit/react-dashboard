@@ -11,8 +11,8 @@ const ActiveIssuesDash = (props) => {
 
     return (
         <div className="card">
-            <h3 className="card-header">Active Issues</h3>
-            <div className="card-block">
+            <h5 className="card-header">Active Issues</h5>
+            <div className="card-body">
                 <div className="row">
                     <ActiveIssues active={active} count={activeCount} />
                     <ClosedIssues closed={closed} />
