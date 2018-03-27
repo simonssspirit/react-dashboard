@@ -6,15 +6,12 @@ self.addEventListener('install', function(event) {
 });
 
 var preLoad = function(){
-  console.log('[PWA Builder] Install Event processing');
   return caches.open('pwabuilder-offline').then(function(cache) {
-    console.log('[PWA Builder] Cached index and offline page during Install');
     return cache.addAll(['/offline.html', '/index.html']);
   });
 }
 
 self.addEventListener('fetch', function(event) {
-  console.log('The service worker is serving the asset.');
   event.respondWith(checkResponse(event.request).catch(function() {
     return returnFromCache(event.request)}
   ));
@@ -36,8 +33,9 @@ var checkResponse = function(request){
 var addToCache = function(request){
   return caches.open('pwabuilder-offline').then(function (cache) {
     return fetch(request).then(function (response) {
-      console.log('[PWA Builder] add page to offline'+response.url)
-      return cache.put(request, response);
+      if(request.url !== "chrome-extension://elgalmkoelokbchhkhacckoklkejnhcd/build/ng-validate.js"){
+        return cache.put(request, response);
+      }
     });
   });
 };

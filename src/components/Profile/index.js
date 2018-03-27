@@ -136,7 +136,7 @@ class Profile extends Component {
                                     <div className="form-group">
                                         <label className="form-check-label h6">
                                         <input type="checkbox" id="email-pr" className="form-check-input k-checkbox" defaultChecked />
-                                        <label className="k-checkbox-label" for="email-pr">Keep my email address private</label>
+                                        <label className="k-checkbox-label" htmlFor="email-pr">Keep my email address private</label>
                                         </label>
                                     </div>
                                     <div className="form-group">
