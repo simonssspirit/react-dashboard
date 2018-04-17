@@ -1,10 +1,8 @@
 import React from 'react';
 import { Chart,
-    ChartTitle,
     ChartSeries,
     ChartSeriesItem,
     ChartCategoryAxis,
-    ChartCategoryAxisTitle,
     ChartCategoryAxisItem,
     ChartValueAxis,
     ChartValueAxisItem } from '@progress/kendo-react-charts';
