@@ -37,10 +37,10 @@ const CloseRate = (props) => {
             </p>
             <Chart style={{ height: '30px'}} chartArea={{margin: -20}}>
                 <ChartSeries>
-                    <ChartSeriesItem data={props.bulletData} type="bullet" currentField="current" targetField="target" color="#CC3458" target={{color: "#FFF"}}/>
+                    <ChartSeriesItem data={props.bulletData}  gap={0} type="bullet" currentField="current" targetField="target" color="#CC3458" target={{color: "#FFF"}}/>
                 </ChartSeries>
                 <ChartValueAxis>
-                    <ChartValueAxisItem plotBands={closeRatePlotBands} visible={false} majorGridLines={{visible:false}}/>
+                    <ChartValueAxisItem narrowRange={false} plotBands={closeRatePlotBands} visible={false} majorGridLines={{visible:false}}/>
                 </ChartValueAxis>
             </Chart>
         </div>

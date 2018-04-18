@@ -85,7 +85,7 @@ class TypesDistribution extends Component {
                     }
                 </div>
                 <div className="card-body">
-                    <Chart chartArea={{ height: '300px' }}
+                    <Chart style={{ height: '300px' }}
                         transitions={false}
                         categoryAxis={categoryAxis}
                         valueAxis={valueAxis}>
