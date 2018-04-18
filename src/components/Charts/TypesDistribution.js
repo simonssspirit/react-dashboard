@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Chart } from '@progress/kendo-charts-react-wrapper';
+import { Chart,
+    ChartSeries,
+    ChartSeriesItem,
+    ChartCategoryAxis,
+    ChartCategoryAxisItem,
+    ChartValueAxis,
+    ChartValueAxisItem } from '@progress/kendo-react-charts';
 
 class TypesDistribution extends Component {
     seriesColors = [
@@ -43,10 +49,12 @@ class TypesDistribution extends Component {
     }
 
     render() {
-        const seriesDefaults = { type: 'line', overlay: false };
-        const categoryAxis = [{ baseUnit: 'months', majorTicks: { visible: false }, labels: { step: 4, skip: 2 }, majorGridLines: { visible: false }, line: { visible: false } }];
+        const categoryAxis = { baseUnit: 'months', majorTicks: { visible: false }, labels: { step: 4, skip: 2 }, majorGridLines: { visible: false }, line: { visible: false } };
         const series = this.state.visibleSeries.map(series => {
-            return {
+
+            const chartOptions = {
+                type: 'line',
+                overlay: false,
                 data: series.data,
                 markers: series.markers,
                 color: series.color,
@@ -54,8 +62,9 @@ class TypesDistribution extends Component {
                 aggregate: 'count',
                 categoryField: 'date'
             }
+            return <ChartSeriesItem {...chartOptions} />
         });
-        const valueAxis = [{ line: { visible: false }, labels: { step: 2, skip: 2 }, majorGridLines: { step: 2, skip: 2, color: '#F0F2F2' } }];
+        const valueAxis = { line: { visible: false }, labels: { step: 2, skip: 2 }, majorGridLines: { step: 2, skip: 2, color: '#F0F2F2' } };
 
         return (
             <div className="card">
@@ -78,10 +87,17 @@ class TypesDistribution extends Component {
                 <div className="card-body">
                     <Chart chartArea={{ height: '300px' }}
                         transitions={false}
-                        seriesDefaults={seriesDefaults}
                         categoryAxis={categoryAxis}
-                        series={series}
                         valueAxis={valueAxis}>
+                        <ChartSeries>
+                            {series}
+                        </ChartSeries>
+                        <ChartValueAxis>
+                            <ChartValueAxisItem {...valueAxis}/>
+                        </ChartValueAxis>
+                        <ChartCategoryAxis>
+                            <ChartCategoryAxisItem {...categoryAxis} />
+                        </ChartCategoryAxis>
                     </Chart>
                 </div>
             </div>

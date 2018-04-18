@@ -8,6 +8,7 @@ import CloseRate from './CloseRate';
 const ActiveIssuesDash = (props) => {
     const { open, closed, active } = props;
     const activeCount = open.length + closed.length;
+    const bulletData = [{target: 70, current: Math.round(props.closeRate.average * 100)}]
 
     return (
         <div className="card">
@@ -17,7 +18,7 @@ const ActiveIssuesDash = (props) => {
                     <ActiveIssues active={active} count={activeCount} />
                     <ClosedIssues closed={closed} />
                     <OpenIssues open={open} />
-                    <CloseRate closeRate={props.closeRate} />
+                    <CloseRate closeRate={props.closeRate} bulletData={bulletData} />
                     <AllIssues open={open} closed={closed} />
                 </div>
                 <div className="row">

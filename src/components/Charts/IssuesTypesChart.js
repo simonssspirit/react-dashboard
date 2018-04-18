@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Chart } from '@progress/kendo-charts-react-wrapper';
+import { Chart,
+     ChartSeries,
+     ChartSeriesItem,
+     ChartLegend} from '@progress/kendo-react-charts';
 
 class IssuesTypesChart extends Component {
     constructor(props) {
@@ -24,13 +27,14 @@ class IssuesTypesChart extends Component {
     }
 
     render() {
-        const series = [{ holeSize: 100, data: this.props.data, type: 'donut', field: 'value', categoryField: 'type', overlay: false }]
+        const series = { holeSize: 120, data: this.props.data, type: 'donut', field: 'value', categoryField: 'type', overlay: false }
         const legend = { position: 'bottom', labels: { font: '0.65em Roboto, Arial, sans-serif'} };
         return (
-            <Chart
-                seriesHover={this.updateDonutLegend.bind(this)}
-                series={series}
-                legend={legend}>
+            <Chart onSeriesHover={this.updateDonutLegend.bind(this)}>
+                <ChartSeries>
+                    <ChartSeriesItem {...series}/>
+                </ChartSeries>
+                <ChartLegend {...legend} />
             </Chart>
         );
     }

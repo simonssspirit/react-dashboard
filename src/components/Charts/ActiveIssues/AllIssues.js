@@ -12,8 +12,14 @@ const AllIssues = (props) => {
         baseUnit: 'months',
         majorTicks: { visible: false  },
         majorGridLines: { visible: false },
-        labels: { rotation: 'auto', margin: { top: 8 } },
+        labels: { rotation: 'auto', margin: { top: 8 }},
         line: { visible: false }
+    };
+
+    const valueAxis = {
+        line: {visible: false},
+        labels: {step: 2, skip: 2, margin: { right: 4 }},
+        majorGridLines: { step: 2, skip: 2, color: '#F0F2F2'}
     };
 
     return (
@@ -28,7 +34,7 @@ const AllIssues = (props) => {
                     <ChartCategoryAxisItem {...categoryAxis}/>
                 </ChartCategoryAxis>
                 <ChartValueAxis>
-                    <ChartValueAxisItem line={"visible: false"} labels={"step: 2, skip: 2, margin: { right: 4 }"} majorGridLines="{ step: 2, skip: 2, color: '#F0F2F2'}"/>
+                    <ChartValueAxisItem {...valueAxis}/>
                 </ChartValueAxis>
             </Chart>
         </div>
