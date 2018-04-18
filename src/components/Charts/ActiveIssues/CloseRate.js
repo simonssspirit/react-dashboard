@@ -1,9 +1,10 @@
 import React from 'react';
 import { Chart,
-    ChartSeries,
-    ChartSeriesItem,
-    ChartValueAxis,
-    ChartValueAxisItem } from '@progress/kendo-react-charts';
+     ChartSeries,
+     ChartSeriesItem,
+     ChartValueAxis,
+     ChartValueAxisItem,
+     ChartArea } from '@progress/kendo-react-charts';
 
 const CloseRate = (props) => {
     const formatp = (number) => {
@@ -35,7 +36,8 @@ const CloseRate = (props) => {
                 {formatp(props.closeRate.lowest.close_rate)}
                 on {formatd(props.closeRate.lowest.created_at)}
             </p>
-            <Chart style={{ height: '30px'}} chartArea={{margin: -20}}>
+            <Chart style={{ height: '30px', marginLeft: "-15px"}}>
+                <ChartArea background={"white"}/>
                 <ChartSeries>
                     <ChartSeriesItem data={props.bulletData}  gap={0} type="bullet" currentField="current" targetField="target" color="#CC3458" target={{color: "#FFF"}}/>
                 </ChartSeries>

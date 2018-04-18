@@ -5,7 +5,8 @@ import { Chart,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
     ChartValueAxis,
-    ChartValueAxisItem } from '@progress/kendo-react-charts';
+    ChartValueAxisItem,
+    ChartArea } from '@progress/kendo-react-charts';
 
 const AllIssues = (props) => {
     const categoryAxis = {
@@ -26,6 +27,7 @@ const AllIssues = (props) => {
         <div className="col-sm-12">
             <h5>All issues</h5>
             <Chart >
+                <ChartArea background={"white"}/>
                 <ChartSeries>
                     <ChartSeriesItem data={props.open} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#35C473"} border={"color: '#35C473', opacicty: 0.3"}/>
                     <ChartSeriesItem data={props.closed} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#CC3458"} border={"color: '#CC3458', opacicty: 0.3"}/>

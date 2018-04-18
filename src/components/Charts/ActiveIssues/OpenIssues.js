@@ -5,7 +5,8 @@ import { Chart,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
     ChartValueAxis,
-    ChartValueAxisItem } from '@progress/kendo-react-charts';
+    ChartValueAxisItem,
+    ChartArea } from '@progress/kendo-react-charts';
 
 const ClosedIssues = (props) => {
     const seriesData =  props.open
@@ -17,6 +18,7 @@ const ClosedIssues = (props) => {
                 <small>Open issues</small>
             </span>
             <Chart style={{ height: '80px' }}>
+                <ChartArea background={"white"}/>
                 <ChartSeries>
                     <ChartSeriesItem data={seriesData} type="column" field="count" categoryField="date" aggregate="count" stack={true} gap={0.5} overlay={false} color={"#CC3458"}/>
                 </ChartSeries>

@@ -5,7 +5,8 @@ import { Chart,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
     ChartValueAxis,
-    ChartValueAxisItem } from '@progress/kendo-react-charts';
+    ChartValueAxisItem,
+    ChartArea } from '@progress/kendo-react-charts';
 
 class TypesDistribution extends Component {
     seriesColors = [
@@ -67,7 +68,7 @@ class TypesDistribution extends Component {
         const valueAxis = { line: { visible: false }, labels: { step: 2, skip: 2 }, majorGridLines: { step: 2, skip: 2, color: '#F0F2F2' } };
 
         return (
-            <div className="card">
+            <div className="card mt-4">
                 <h4 className="card-header">Types Distribution</h4>
                 <div className="row card-body pb-0 small">
                     {
@@ -89,6 +90,7 @@ class TypesDistribution extends Component {
                         transitions={false}
                         categoryAxis={categoryAxis}
                         valueAxis={valueAxis}>
+                        <ChartArea background={"white"}/>
                         <ChartSeries>
                             {series}
                         </ChartSeries>

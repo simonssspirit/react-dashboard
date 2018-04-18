@@ -39,7 +39,7 @@ class IssuesTypes extends Component {
     }
     render() {
         return (
-            <div className="card issue-types">
+            <div className="card issue-types mt-4">
                 <h4 className="card-header">Issue Types</h4>
                 <div className="card-body">
                     <IssuesTypeChart data={this.props.data} seriesHover={this.seriesHover} />

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Chart,
      ChartSeries,
      ChartSeriesItem,
-     ChartLegend} from '@progress/kendo-react-charts';
+     ChartLegend,
+     ChartArea } from '@progress/kendo-react-charts';
 import 'hammerjs';
 
 
@@ -50,6 +51,7 @@ class IssuesTypesChart extends Component {
 
         return (
             <Chart onSeriesHover={this.updateDonutLegend.bind(this)} onLegendItemClick={this.updateSeries.bind(this)} transitions={false}>
+                <ChartArea background={"white"}/>
                 <ChartSeries>
                     <ChartSeriesItem holeSize={120} data={this.state.data} type="donut" field="value" categoryField="type" overlay={false}/>
                 </ChartSeries>
