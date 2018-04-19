@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     let { skip, take } = state.issuesPaging;
-    let periodStart = state.issuesPeriod.range.from;
-    let itemsInPeriod = state.issues.filter(issue => issuesInRange(issue, periodStart));
+    let periodStart = state.issues.period.range.from;
+    let itemsInPeriod = state.issues.data.filter(issue => issuesInRange(issue, periodStart));
     let items = itemsInPeriod.slice(skip, skip + take);
     let total = itemsInPeriod.length;
 

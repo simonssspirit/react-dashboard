@@ -11,7 +11,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div className="row">
                 <div className="row mb-4">
                     <div className="col-sm">
                         <h5>

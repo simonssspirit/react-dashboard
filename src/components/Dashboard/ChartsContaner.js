@@ -4,7 +4,7 @@ import { mapIssue, groupLabels, distribution, groupIssues, closeRate } from './.
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-    const mappedIssues = state.issues.map(mapIssue);
+    const mappedIssues = state.issues.data.map(mapIssue);
     const { open, closed } = groupIssues(mappedIssues);
 
     return {
