@@ -72,9 +72,9 @@ class Profile extends Component {
                     <div className="dialog-header">
                         <div className="k-window-title k-dialog-title">Are you sure you want to do this?</div>
                         <div className="k-window-actions k-dialog-actions">
-                            <a aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close" href="#" role="button">
+                            <button onClick={this.onDeleteClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
                                 <span className="k-icon k-i-x"></span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div className="dialog-content">
@@ -94,9 +94,9 @@ class Profile extends Component {
                     <div className="dialog-header">
                         <div className="k-window-title k-dialog-title">Thank you</div>
                         <div className="k-window-actions k-dialog-actions">
-                            <a aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close" href="#" role="button">
+                            <button onClick={this.onUpdateClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
                                 <span className="k-icon k-i-x"></span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div className="dialog-content">

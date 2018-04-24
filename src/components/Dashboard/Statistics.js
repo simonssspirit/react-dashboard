@@ -16,7 +16,7 @@ class Statistics extends React.Component {
     }
     render() {
      return (
-        <TabStrip selected={this.state.selected} onSelect={this.handleSelect}>
+        <TabStrip selected={this.state.selected} onSelect={this.handleSelect} animation={false}>
             <TabStripTab title="All Issues">
                 <div className="row">
                     <div className="col-md-12">

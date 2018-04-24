@@ -1,6 +1,6 @@
 let getRangeStart = (months) => {
     let since = new Date();
-    let parsedMonths = parseInt(months)
+    let parsedMonths = parseInt(months,10)
     since.setMonth(since.getMonth() - parsedMonths);
     return since;
 }

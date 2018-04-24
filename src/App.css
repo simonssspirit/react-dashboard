@@ -81,6 +81,10 @@ span.active {
   align-items: center;
 }
 
-.k-overlay{
-  z-index: 99 !important;
+.py-5>div>div>.k-overlay{
+  z-index: 99;
+}
+
+.k-window-actions>.k-button>.k-icon{
+  line-height: 0;
 }

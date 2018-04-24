@@ -19,8 +19,8 @@ class TypesDistribution extends Component {
     ];
     constructor(props) {
         super(props);
+        this.data = props.data;
         this.addSeries = this.addSeries.bind(this);
-
         this.state = {
             initialGrey: '#A2ACAC',
             visibleSeries: this.seriesColors.filter(s => s.active).map(this.mapSeries),
@@ -29,8 +29,9 @@ class TypesDistribution extends Component {
         };
     }
     componentWillReceiveProps(props) {
+        this.data = props.data
         this.setState({
-            visibleSeries: this.seriesColors.filter(s => s.active).map(this.mapSeries),
+            visibleSeries: this.seriesColors.filter(s => s.active).map(this.state.mapSeries),
         })
     }
 
@@ -38,7 +39,7 @@ class TypesDistribution extends Component {
         return {
             color: series.value,
             markers: { visible: false },
-            data: this.props.data[series.label]
+            data: this.data[series.label]
         };
     })
 
@@ -51,10 +52,11 @@ class TypesDistribution extends Component {
 
     render() {
         const categoryAxis = { baseUnit: 'months', majorTicks: { visible: false }, labels: { step: 4, skip: 2 }, majorGridLines: { visible: false }, line: { visible: false } };
-        const series = this.state.visibleSeries.map(series => {
+        const series = this.state.visibleSeries.map((series, idx) => {
 
             const chartOptions = {
                 type: 'line',
+                key: idx,
                 overlay: false,
                 data: series.data,
                 markers: series.markers,
