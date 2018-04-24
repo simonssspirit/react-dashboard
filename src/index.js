@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import App from './App';
 
 import './index.scss';
-import '@progress/kendo-ui';
 
 import { issuesStore } from "./store";
 import { Provider } from "react-redux";
