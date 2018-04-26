@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Dashboard extends Component {
     login = () => {
-        this.props.history.push('/dashboard');
+        this.props.history.push('dashboard');
     }
     render() {
         return (
