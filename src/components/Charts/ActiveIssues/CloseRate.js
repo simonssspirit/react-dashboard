@@ -1,9 +1,12 @@
 import React from 'react';
-import { Chart } from '@progress/kendo-charts-react-wrapper';
+import { Chart,
+     ChartSeries,
+     ChartSeriesItem,
+     ChartValueAxis,
+     ChartValueAxisItem,
+     ChartArea } from '@progress/kendo-react-charts';
 
 const CloseRate = (props) => {
-    const series = [{ type: 'bullet', taget: {color: '#FFF'},data: props.bulletData, currentField: 'current', targetField: 'target', color: '#CC3458'}]
-    const categoryAxis = [{plotBands: [{from: 0, to:100, color: '#35C473'}]}];
     const formatp = (number) => {
         return Intl.NumberFormat(navigator.language, {style: 'percent'}).format(number);
     };
@@ -14,6 +17,8 @@ const CloseRate = (props) => {
         }
         return new Date(parseInt(date, 10)).toDateString();
     }
+
+    const closeRatePlotBands = [{from: 0, to:100, color: "#35C473" }]
 
     return (
         <div className="col-12 col-lg-6 col-xl pb-4 close-rate">
@@ -31,11 +36,14 @@ const CloseRate = (props) => {
                 {formatp(props.closeRate.lowest.close_rate)}
                 on {formatd(props.closeRate.lowest.created_at)}
             </p>
-            <Chart
-                chartArea={{margin: -20, height: 20}}
-                series={series}
-                categoryAxis={categoryAxis}
-            >
+            <Chart style={{ height: '30px', marginLeft: "-15px"}}>
+                <ChartArea background={"white"}/>
+                <ChartSeries>
+                    <ChartSeriesItem data={props.bulletData}  gap={0} type="bullet" currentField="current" targetField="target" color="#CC3458" target={{color: "#FFF"}}/>
+                </ChartSeries>
+                <ChartValueAxis>
+                    <ChartValueAxisItem narrowRange={false} plotBands={closeRatePlotBands} visible={false} majorGridLines={{visible:false}}/>
+                </ChartValueAxis>
             </Chart>
         </div>
     );

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Button } from '@progress/kendo-react-buttons';
 import { Popup } from '@progress/kendo-react-popup';
-import { Dialog } from '@progress/kendo-dialog-react-wrapper';
-import { Switch } from '@progress/kendo-inputs-react-wrapper';
+import { Switch } from '@progress/kendo-react-inputs';
+import Overlay from '../Common/Overlay'
 
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showAskDelete: false,
-            showProfileUpdate: false
+            showProfileUpdate: false,
+            isWithOverlay: false
         }
 
         this.onDeleteClick = this.onDeleteClick.bind(this);
@@ -29,16 +30,19 @@ class Profile extends Component {
 
     onUpdateClick() {
         this.setState((prevState, props) => ({
-                showProfileUpdate: !prevState.showProfileUpdate
+                showProfileUpdate: !prevState.showProfileUpdate,
+                isWithOverlay: !prevState.isWithOverlay
             })
         );
 
     }
 
     onDeleteClick() {
-        this.setState({
-            showAskDelete: true
-        });
+        this.setState((prevState, props) => ({
+            showAskDelete: !prevState.showAskDelete,
+            isWithOverlay: !prevState.isWithOverlay
+            })
+        );
     }
 
     render() {
@@ -47,6 +51,7 @@ class Profile extends Component {
         <div>
         {/* if userId */}
             <div>
+            {this.state.isWithOverlay && <Overlay/>}
                 <div className="row mb-4">
                     <div className="col-sm">
                         <h2>
@@ -59,15 +64,55 @@ class Profile extends Component {
                     </div>
                 </div>
             </div>
-            <Dialog title="Delete" minWidth={250} width={450} visible={this.state.showAskDelete} actions={[{text:'Yes',primary:true},{text:'No'}]}>
-                <h1>FOO</h1>
-            </Dialog>
+            <Popup show={this.state.showAskDelete} 
+                   popupClass={'popup-content'} 
+                   animate={false} 
+                   anchor={this.anchor}>
+                <div className="content">
+                    <div className="dialog-header">
+                        <div className="k-window-title k-dialog-title">Are you sure you want to do this?</div>
+                        <div className="k-window-actions k-dialog-actions">
+                            <button onClick={this.onDeleteClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
+                                <span className="k-icon k-i-x"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="dialog-content">
+                        <p>Account deletetion cannot be undone!</p>
+                    </div>
+                    <div className="dialog-footer">
+                        <Button onClick={this.onDeleteClick}>Cancel</Button>
+                        <Button primary={true} onClick={this.onDeleteClick}>Delete Account</Button>
+                    </div>
+                </div>
+            </Popup>
+            <Popup show={this.state.showProfileUpdate} 
+                   popupClass={'popup-content'} 
+                   animate={false} 
+                   anchor={this.anchor}>
+                <div className="content">
+                    <div className="dialog-header">
+                        <div className="k-window-title k-dialog-title">Thank you</div>
+                        <div className="k-window-actions k-dialog-actions">
+                            <button onClick={this.onUpdateClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
+                                <span className="k-icon k-i-x"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="dialog-content">
+                        <p>Your profile has been successfully updated</p>
+                    </div>
+                <div className="dialog-footer">
+                    <Button onClick={this.onUpdateClick}>OK</Button>
+                </div>
+         </div>
+     </Popup>
             <div className="row">
                 <div className="col-md-7">
 
                     <div className="card" id="profile">
                         <h3 className="card-header">Public Profile</h3>
-                        <div className="card-block">
+                        <div className="card-body">
 
                             <div className="row">
                                 <div className="col-md-3 text-xs-center">
@@ -80,7 +125,9 @@ class Profile extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Name</label>
-                                        <input type="text" id="name" className="form-control" defaultValue={this.state.name} />
+                                        <input type="text" id="name" className="form-control" defaultValue={this.state.name} ref={(button) => {
+                                            this.anchor = button;
+                                        }}/>
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Email</label>
@@ -88,7 +135,8 @@ class Profile extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label className="form-check-label h6">
-                                            <input type="checkbox" className="form-check-input" defaultChecked /> Keep my email address private
+                                        <input type="checkbox" id="email-pr" className="form-check-input k-checkbox" defaultChecked />
+                                        <label className="k-checkbox-label" htmlFor="email-pr">Keep my email address private</label>
                                         </label>
                                     </div>
                                     <div className="form-group">
@@ -110,7 +158,7 @@ class Profile extends Component {
 
                     <div className="card" id="delete-account">
                         <h3 className="card-header">Delete Account</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                             </p>
@@ -124,7 +172,7 @@ class Profile extends Component {
 
                     <div className="card" id="notifications">
                         <h3 className="card-header">Notifications</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <h4 className="h6">Automatically watch repositories?</h4>
                             <p className="text-muted">When you are given push access to a repository, automatically receive notifications for it.</p>
                             <p>
@@ -132,17 +180,17 @@ class Profile extends Component {
                             </p>
                             <h4 className="h6">Receive updates to any conversations via email?</h4>
                             <p>
-                                <Switch checked={true}></Switch>
+                                <Switch defaultChecked={true}></Switch>
                             </p>
                             <h4 className="h6">Receive updates to any repositories via email?</h4>
                             <p>
-                                <Switch checked={true}></Switch>
+                                <Switch defaultChecked={true}></Switch>
                             </p>
                         </div>
                     </div>
                     <div className="card" id="password">
                         <h3 className="card-header">Update password</h3>
-                        <div className="card-block">
+                        <div className="card-body">
                             <div className="form-group">
                                 <label className="h6">Old password</label>
                                 <input type="password" className="form-control" />

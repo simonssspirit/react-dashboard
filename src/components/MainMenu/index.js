@@ -23,12 +23,12 @@ class MainMenu extends Component {
         return (
             <div id="app" className="app container-fluid">
             <div className="row">
-                <div id="top-bar" className="top-bar col-xs-12 bg-inverse d-md-none"></div>
+                <div id="top-bar" className="top-bar col-xs-12 bg-dark d-md-none"></div>
                 {
                     this.state.showNav ?
 
-                    <div id="nav" className="col-xs-3 bg-inverse text-white py-5 k-vbox">
-                        <h1 id="app-title">Issues</h1>
+                    <div id="nav" className="col-xs-3 bg-dark text-white py-5 k-vbox">
+                        <h3 id="app-title">Issues</h3>
                         <p id="app-subtitle">Sample Dashboard</p>
                         <hr />
                         <p className="h4 mt-5">Project</p>

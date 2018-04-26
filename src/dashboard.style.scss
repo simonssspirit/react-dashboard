@@ -204,19 +204,23 @@ main {
 .dashboard {
 	display: block;
 
-	.card-block {
+	.card-body {
 		position: relative;
 	}
 
 
 	.k-tabstrip {
+		position: relative;
 		background: none;
 	}
 	.k-tabstrip .k-tabstrip-items {
 		position: absolute;
-		top: calc( 1.75em + 2px );
+		top: .5em;
 		right: 0;
 		z-index: 2;
+	}
+	.k-tabstrip .k-item.k-state-active {
+		background-color: white;
 	}
 	.k-tabstrip .k-content {
 		margin: 0;
@@ -266,7 +270,7 @@ main {
 	.issue-types {
 		overflow: hidden;
 	}
-	.issue-types .card-block {
+	.issue-types .card-body {
 		max-width: 100%;
 	}
 	.issue-types .chart-label {
