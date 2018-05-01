@@ -2,12 +2,13 @@
 
 //Install stage sets up the offline page in the cahche and opens a new cache
 self.addEventListener('install', function(event) {
+  console.log("SW installed")
   event.waitUntil(preLoad());
 });
 
 var preLoad = function(){
   return caches.open('pwabuilder-offline').then(function(cache) {
-    return cache.addAll(['/offline.html', '/index.html']);
+    return cache.addAll(['offline.html', 'index.html']);
   });
 }
 

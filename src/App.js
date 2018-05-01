@@ -44,7 +44,7 @@ class App extends Component {
     let options = { method: 'GET', accept: 'application/json', headers: headers };
 
     for (let page = 1; page <= numberOfPages; page++) {
-        let url = baseUrl + `?state=all&page=${page}&per_page=100`;
+        let url = baseUrl + `?state=all&page=${page}&per_page=50`;
         fetches.push(fetch(url, options));
     }
 
