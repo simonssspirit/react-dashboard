@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 
 class Dashboard extends Component {
     login = () => {
@@ -6,21 +8,22 @@ class Dashboard extends Component {
     }
     render() {
         return (
-            <div className="signin" id="signin">
+            <div>
                 <div className="signin-form p-5">
                     <h1 id="app-title">ISSUES</h1>
                     <p id="app-subtitle">SAMPLE DASHBOARD</p>
+                    <hr/>
                     <div className="form-group mt-4">
-                        <input type="text" className="form-control" placeholder="Email or Username" />
+                        <Input type="text" placeholder="Email or Username" />
                     </div>
                     <div className="form-group mb-4">
-                        <input type="password" className="form-control" placeholder="Password" />
+                        <Input type="password"  placeholder="Password" />
                         <p className="text-xs-right small">
-                        <a>Forgot it?</a>
-                    </p>
+                            <a>Forgot it?</a>
+                        </p>
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary btn-block" onClick={this.login}>Log in</button>
+                        <Button color='primary' onClick={this.login}>Log in</Button>
                     </div>
                 </div>
             </div>

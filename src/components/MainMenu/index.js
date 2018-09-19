@@ -27,10 +27,10 @@ class MainMenu extends Component {
                 {
                     this.state.showNav ?
 
-                    <div id="nav" className="col-xs-3 bg-dark text-white py-5 k-vbox">
+                    <div id="nav" className="col-xs-3 material-color text-white py-5 k-vbox">
                         <h3 id="app-title">Issues</h3>
                         <p id="app-subtitle">Sample Dashboard</p>
-                        <hr />
+                        <hr className="k-hr"/>
                         <p className="h4 mt-5">Project</p>
                         <ul className="nav nav-pills flex-column">
                             <li className="nav-item" id="dashbaord">
@@ -57,7 +57,7 @@ class MainMenu extends Component {
                     </div >
                     : null
                 }
-                <div className="col-xs p-4 py-5">
+                <div className="col-xs p-4 py-5 container-body">
                     {this.props.location.pathname === '/' ? <Redirect from="/" to="dashboard" /> : null }
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/issues" component={IssuesIndex} />

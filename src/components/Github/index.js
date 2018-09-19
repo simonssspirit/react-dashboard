@@ -16,7 +16,7 @@ export const withGithubApi = (ApiComponent) => {
             this.state = {
                 gitOptions: options,
                 gitBaseUrl: baseUrl,
-                gitUsername: 'ggkrustev'
+                gitUsername: 'simonssspirit'
             };
         }
 

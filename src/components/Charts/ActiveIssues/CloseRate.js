@@ -18,7 +18,7 @@ const CloseRate = (props) => {
         return new Date(parseInt(date, 10)).toDateString();
     }
 
-    const closeRatePlotBands = [{from: 0, to:100, color: "#35C473" }]
+    const closeRatePlotBands = [{from: 0, to:100, color: "#27c46d" }]
 
     return (
         <div className="col-12 col-lg-6 col-xl pb-4 close-rate">
@@ -39,7 +39,7 @@ const CloseRate = (props) => {
             <Chart style={{ height: '30px', marginLeft: "-15px"}}>
                 <ChartArea background={"white"}/>
                 <ChartSeries>
-                    <ChartSeriesItem data={props.bulletData}  gap={0} type="bullet" currentField="current" targetField="target" color="#CC3458" target={{color: "#FFF"}}/>
+                    <ChartSeriesItem data={props.bulletData}  gap={0} type="bullet" currentField="current" targetField="target" color="#e91e63" target={{color: "#FFF"}}/>
                 </ChartSeries>
                 <ChartValueAxis>
                     <ChartValueAxisItem narrowRange={false} plotBands={closeRatePlotBands} visible={false} majorGridLines={{visible:false}}/>

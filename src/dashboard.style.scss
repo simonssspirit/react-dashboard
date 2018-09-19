@@ -254,10 +254,6 @@ main {
 		cursor: pointer;
 	}
 
-
-	.active-issues {}
-	.closed-issues {}
-	.open-issues {}
 	.close-rate {
 		.k-chart {
 			padding-top: 6px;
@@ -338,31 +334,4 @@ main {
 	.k-pager-wrap .k-pager-info {
 		display: flex;
 	}
-}
-
-
-
-// Signin
-.signin {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	box-sizing: border-box;
-	color: #ffffff;
-	background-color: #111111;
-	background-image: url( "assets/login-left-bg.png" ), url( "assets/login-right-bg.png" );
-	background-position: left center, right bottom;
-	background-repeat: no-repeat;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	#app-title { font-size: 4em; }
-	#app-subtitle { font-size: 1em; }
-}
-.signin-form {
-	width: 360px;
-	background-color: inherit;
 }

@@ -29,8 +29,8 @@ const AllIssues = (props) => {
             <Chart >
                 <ChartArea background={"white"}/>
                 <ChartSeries>
-                    <ChartSeriesItem data={props.open} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#35C473"} border={"color: '#35C473', opacicty: 0.3"}/>
-                    <ChartSeriesItem data={props.closed} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#CC3458"} border={"color: '#CC3458', opacicty: 0.3"}/>
+                    <ChartSeriesItem data={props.open} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#27c46d"} border={"color: '#27c46d', opacicty: 0.3"}/>
+                    <ChartSeriesItem data={props.closed} type="column" field="count" categoryField="date" aggregate="count" stack={true} opacity={0.3} gap={0.06} overlay={false} color={"#e91e63"} border={"color: '#e91e63', opacicty: 0.3"}/>
                 </ChartSeries>
                 <ChartCategoryAxis>
                     <ChartCategoryAxisItem {...categoryAxis}/>

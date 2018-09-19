@@ -38,7 +38,7 @@ class App extends Component {
         // Generate your own token through
         // https://github.com/settings/tokens
 
-        'Authorization': "token b95116792cba5a8169a1ec10640d8c16535c6419"
+        'Authorization': "token a39a394c615ac5e271c0cc134479978d42f96f86"
     };
 
     let options = { method: 'GET', accept: 'application/json', headers: headers };

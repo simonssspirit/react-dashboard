@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Button } from '@progress/kendo-react-buttons';
-import { Popup } from '@progress/kendo-react-popup';
-import { Switch } from '@progress/kendo-react-inputs';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Switch from '@material-ui/core/Switch';
 import Overlay from '../Common/Overlay'
 
 class Profile extends Component {
@@ -64,49 +71,29 @@ class Profile extends Component {
                     </div>
                 </div>
             </div>
-            <Popup show={this.state.showAskDelete} 
-                   popupClass={'popup-content'} 
-                   animate={false} 
-                   anchor={this.anchor}>
-                <div className="content">
-                    <div className="dialog-header">
-                        <div className="k-window-title k-dialog-title">Are you sure you want to do this?</div>
-                        <div className="k-window-actions k-dialog-actions">
-                            <button onClick={this.onDeleteClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
-                                <span className="k-icon k-i-x"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="dialog-content">
-                        <p>Account deletetion cannot be undone!</p>
-                    </div>
-                    <div className="dialog-footer">
+            <Dialog open={this.state.showAskDelete}>
+                <DialogTitle >Are you sure you want to delete your account?</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Account deletion cannot be undone!
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
                         <Button onClick={this.onDeleteClick}>Cancel</Button>
-                        <Button primary={true} onClick={this.onDeleteClick}>Delete Account</Button>
-                    </div>
-                </div>
-            </Popup>
-            <Popup show={this.state.showProfileUpdate} 
-                   popupClass={'popup-content'} 
-                   animate={false} 
-                   anchor={this.anchor}>
-                <div className="content">
-                    <div className="dialog-header">
-                        <div className="k-window-title k-dialog-title">Thank you</div>
-                        <div className="k-window-actions k-dialog-actions">
-                            <button onClick={this.onUpdateClick} aria-label="Close" className="k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close">
-                                <span className="k-icon k-i-x"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="dialog-content">
-                        <p>Your profile has been successfully updated</p>
-                    </div>
-                <div className="dialog-footer">
-                    <Button onClick={this.onUpdateClick}>OK</Button>
-                </div>
-         </div>
-     </Popup>
+                        <Button onClick={this.onDeleteClick}>Delete</Button>
+                    </DialogActions>
+            </Dialog>
+            <Dialog open={this.state.showProfileUpdate}>
+                <DialogTitle>Thank you</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Your profile has been successfully updated
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={this.onUpdateClick} color='primary' type='flat'>OK</Button>
+                </DialogActions>
+            </Dialog>
             <div className="row">
                 <div className="col-md-7">
 
@@ -121,34 +108,38 @@ class Profile extends Component {
                                 <div className="col-md-9">
                                     <div className="form-group">
                                         <label className="h6">Username</label>
-                                        <input type="text" id="username" className="form-control" defaultValue={this.state.login} />
+                                        <Input type="text" id="username" className="form-control" defaultValue={this.state.login} />
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Name</label>
-                                        <input type="text" id="name" className="form-control" defaultValue={this.state.name} ref={(button) => {
+                                        <Input type="text" id="name" className="form-control" defaultValue={this.state.name} ref={(button) => {
                                             this.anchor = button;
                                         }}/>
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Email</label>
-                                        <input type="email" id="email" className="form-control" defaultValue={this.state.email} />
+                                        <Input type="email" id="email" className="form-control" defaultValue={this.state.email} />
                                     </div>
                                     <div className="form-group">
                                         <label className="form-check-label h6">
-                                        <input type="checkbox" id="email-pr" className="form-check-input k-checkbox" defaultChecked />
-                                        <label className="k-checkbox-label" htmlFor="email-pr">Keep my email address private</label>
+                                        <FormControlLabel
+                                        control={
+                                          <Checkbox defaultChecked color="primary"/>
+                                        }
+                                        label="Keep my email address private"
+                                      />
                                         </label>
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Company</label>
-                                        <input type="text" id="company" className="form-control" defaultValue={this.state.company} />
+                                        <Input type="text" id="company" className="form-control" defaultValue={this.state.company} />
                                     </div>
                                     <div className="form-group">
                                         <label className="h6">Location</label>
-                                        <input type="text" id="location" className="form-control" defaultValue={this.state.location} />
+                                        <Input type="text" id="location" className="form-control" defaultValue={this.state.location} />
                                     </div>
                                     <div className="form-group">
-                                        <button className="btn btn-primary" onClick={this.onUpdateClick}>Update profile</button>
+                                        <Button onClick={this.onUpdateClick}>Update profile</Button>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +153,7 @@ class Profile extends Component {
                             <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                             </p>
-                            <button className="btn btn-danger" onClick={this.onDeleteClick}>Delete Account</button>
+                            <Button color="primary" onClick={this.onDeleteClick}>Delete Account</Button>
                         </div>
                     </div>
 
@@ -176,15 +167,15 @@ class Profile extends Component {
                             <h4 className="h6">Automatically watch repositories?</h4>
                             <p className="text-muted">When you are given push access to a repository, automatically receive notifications for it.</p>
                             <p>
-                                <Switch></Switch>
+                                <Switch color="primary"></Switch>
                             </p>
                             <h4 className="h6">Receive updates to any conversations via email?</h4>
                             <p>
-                                <Switch defaultChecked={true}></Switch>
+                                <Switch defaultChecked={true} color="primary"></Switch>
                             </p>
                             <h4 className="h6">Receive updates to any repositories via email?</h4>
                             <p>
-                                <Switch defaultChecked={true}></Switch>
+                                <Switch defaultChecked={true} color="primary"></Switch>
                             </p>
                         </div>
                     </div>
@@ -193,18 +184,18 @@ class Profile extends Component {
                         <div className="card-body">
                             <div className="form-group">
                                 <label className="h6">Old password</label>
-                                <input type="password" className="form-control" />
+                                <Input type="password" className="form-control" />
                             </div>
                             <div className="form-group">
                                 <label className="h6">New password</label>
-                                <input type="password" className="form-control" />
+                                <Input type="password" className="form-control" />
                             </div>
                             <div className="form-group">
                                 <label className="h6">Confirm password</label>
-                                <input type="password" className="form-control" />
+                                <Input type="password" className="form-control" />
                             </div>
                             <div className="form-group">
-                            <button className="btn btn-secondary">Change password</button>
+                                <Button>Change password</Button>
                             </div>
                         </div>
                     </div>
