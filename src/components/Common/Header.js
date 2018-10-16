@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ButtonGroup, Button } from '@progress/kendo-react-buttons';
+import { registerForIntl, provideIntlService } from '@progress/kendo-react-intl';
 
 class Header extends Component {
     static periods = ["3", "6", "12"];
@@ -10,16 +11,20 @@ class Header extends Component {
     }
 
     render() {
+        const { from, to } = this.props.range;
+        const formatedFrom = provideIntlService(this).formatDate(from, 'MMMM dd, yyyy');
+        const formatedTo = provideIntlService(this).formatDate(to, 'MMMM dd, yyyy');
+
         return (
-            <div className="row">
-                <div className="col-sm mb-4">
-                    <h5>
-                        <span className="small text-uppercase text-muted d-block">{this.props.name}</span>
-                        {[this.props.range.from.toDateString(), ' - ', this.props.range.to.toDateString()]}
-                    </h5>
+            <div id="header" className="row">
+                <div className="col-sm">
+                    <h4 className="d-block">{this.props.name}</h4>
+                    <h2>
+                        {[formatedFrom, ' - ', formatedTo]}
+                    </h2>
                 </div>
-                <div className="col-sm text-sm-right mb-4">
-                    <ButtonGroup>
+                <div className="col-sm text-sm-right">
+                    <ButtonGroup className="justify-content-center">
                         {
                             Header.periods.map(p => <Button
                                 key={p} value={p}
@@ -35,5 +40,7 @@ class Header extends Component {
         );
     };
 }
+
+registerForIntl(Header);
 
 export default Header;

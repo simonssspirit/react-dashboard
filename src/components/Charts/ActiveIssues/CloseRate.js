@@ -22,10 +22,11 @@ const CloseRate = (props) => {
 
     return (
         <div className="col-12 col-lg-6 col-xl pb-4 close-rate">
-            <span className="comp-label">
-                <strong>{formatp(props.closeRate.average)}</strong>
-                <small>Close rate</small>
-            </span>
+            <div className="comp-label">
+                <div className="issues-count">{formatp(props.closeRate.average)}</div>
+                <div className="issues-label">Close rate</div>
+            </div>
+
             <p className="m-0 small text-uppercase text-muted">
                 Highest:
                 {formatp(props.closeRate.highest.close_rate) }

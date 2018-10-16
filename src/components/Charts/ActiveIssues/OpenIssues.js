@@ -13,14 +13,14 @@ const ClosedIssues = (props) => {
     const categoryAxis = { baseUnit: 'months', majorGridLines: {visible: false}, majorTicks: { visible: false  }, labels: { step: 4, skip: 2, font: '10px sans-serif' }, line: { visible: false } };
     return (
         <div className="col-12 col-lg-6 col-xl pb-4 text-success closed-issues">
-            <span className="comp-label">
-                <strong>{ props.open.length }</strong>
-                <small>Open issues</small>
-            </span>
+            <div className="comp-label">
+                <div className="issues-count">{props.open.length}</div>
+                <div className="issues-label">Open issues</div>
+            </div>
             <Chart style={{ height: '80px' }}>
                 <ChartArea background={"white"}/>
                 <ChartSeries>
-                    <ChartSeriesItem data={seriesData} type="column" field="count" categoryField="date" aggregate="count" stack={true} gap={0.5} overlay={false} color={"#27c46d"}/>
+                    <ChartSeriesItem data={seriesData} type="area" line={{ style: "smooth" }} field="count" categoryField="date" aggregate="count" stack={true} gap={0.5} overlay={false} color={"#27c46d"}/>
                 </ChartSeries>
                 <ChartCategoryAxis>
                     <ChartCategoryAxisItem {...categoryAxis}/>

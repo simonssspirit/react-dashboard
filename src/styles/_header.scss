@@ -1,0 +1,13 @@
+#header {
+    .k-button-group {
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    @media(max-width: 768px) {
+        text-align: center;
+        .k-button{
+            font-size: 10px;
+        }
+    }
+}

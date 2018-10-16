@@ -1,0 +1,61 @@
+#dashboard {
+    .k-tabstrip {
+        position: relative;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .k-tabstrip-items {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        margin-right: 1rem;
+    }
+
+    .k-content {
+        padding: 0;
+        overflow: visible;
+    }
+
+    .height-1 {
+        min-height: 400px;
+    }
+
+    .comp-label {
+        .issues-count {
+            font-size: 3.5rem;
+            font-weight: 200;
+            line-height: 1;
+        }
+        .issues-label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .all-issues, .issue-types, .types-distribution {
+        padding: 0;
+    }
+
+
+    .k-chart-donut-center {
+        transform: scale(.5);
+
+        .chart-label {
+            position: relative;
+            transform: scale(2);
+            width: 50%;
+            transition: color .3s ease;
+
+            .percentage {
+                position: absolute;
+                top: .4rem;
+                right: 0;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
