@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className="navbar sticky-top bg-white d-xl-none">
-          <a onClick={this.handleClick} className="navbar-btn" data-toggle="collapse" data-target="#side-nav" aria-controls="side-nav" />
+          <a onClick={this.handleClick} className="navbar-btn" data-toggle="collapse" data-target="#side-nav" aria-controls="side-nav" >&nbsp</a>
         </div>
         {this.state.loading ? <span className="k-icon k-i-loading"></span> : <MainMenu {...this.props} showNav={showNav} />}
       </React.Fragment>

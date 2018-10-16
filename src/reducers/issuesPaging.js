@@ -4,6 +4,7 @@ let initialState = {
 }
 
 export const issuesPaging = (state = initialState, action) => {
+    console.log(action)
     if (action.type === 'ISSUES_PAGE_CHANGE') {
         let newState = { skip: action.skip, take: action.take, pageSize: action.take }
         return newState
