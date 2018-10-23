@@ -77,7 +77,7 @@ class Profile extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.onDeleteClick}>Cancel</Button>
-                        <Button onClick={this.onDeleteClick}>Delete</Button>
+                        <Button color="primary" onClick={this.onDeleteClick}>Delete</Button>
                     </DialogActions>
                 </Dialog>
                 <Dialog open={this.state.showProfileUpdate}>
@@ -99,7 +99,9 @@ class Profile extends Component {
                             <div className="k-card-body">
                                 <div className="row">
                                     <div className="col-md-3 text-xs-center">
-                                        <img src={this.state.avatar_url} alt="Avatar URL" style={{ 'maxWidth': '100%' }} className="img-circle img-large" />
+                                        {this.state.avatar_url
+                                            ? <img src={this.state.avatar_url} alt="Avatar URL" style={{ 'maxWidth': '100%' }} className="img-circle img-large" />
+                                            : <span className="k-icon k-i-loading" />}
                                     </div>
                                     <div className="col-md-9">
                                         <div className="form-group">
@@ -149,7 +151,7 @@ class Profile extends Component {
                                 <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                                 </p>
-                                <Button color="primary" onClick={this.onDeleteClick}>Delete Account</Button>
+                                <Button variant="contained" onClick={this.onDeleteClick}>Delete Account</Button>
                             </div>
                         </div>
 

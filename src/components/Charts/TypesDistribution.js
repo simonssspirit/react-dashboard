@@ -80,7 +80,7 @@ class TypesDistribution extends Component {
                                     onClick={() => { this.addSeries(button) }}
                                     key={button.label}
                                     style={{ color: button.active ? button.value : this.state.initialGrey }}
-                                    className="col-4 col-xl-2 comp-label"
+                                    className="col-6 col-sm-4 col-xl-2 comp-label"
                                 >
                                     <div className="issues-count">{this.props.data[button.label].length}</div>
                                     <div className="issues-label">{button.label}</div>

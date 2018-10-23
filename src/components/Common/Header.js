@@ -23,7 +23,7 @@ class Header extends Component {
                         {[formatedFrom, ' - ', formatedTo]}
                     </h2>
                 </div>
-                <div className="col-sm text-sm-right">
+                <div className="col-sm text-sm-right p-0 p-sm-3">
                     <ButtonGroup className="justify-content-center">
                         {
                             Header.periods.map(p => <Button

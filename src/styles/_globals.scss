@@ -1,3 +1,11 @@
+.k-typography {
+  line-height: 1.5;
+}
+
+#app {
+  margin-bottom: 1rem;
+}
+
 h1,
 h2,
 h4 {
@@ -42,10 +50,6 @@ p {
   font-weight: 400;
 }
 
-.k-card-body {
-  padding: 1.5rem;
-}
-
 small,
 .small {
   font-size: 70%;
@@ -69,12 +73,7 @@ small,
   z-index: 1130;
 }
 
-.navbar-btn {
-  padding: 20px;
-  background: url("assets/hamburger.svg") no-repeat 0 70%;
-}
-
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .k-tabstrip > .k-tabstrip-items {
     position: relative;
     margin-bottom: 1rem;
@@ -82,7 +81,6 @@ small,
 
     .k-item .k-link {
       padding: 7px;
-      font-size: 0.6rem;
     }
   }
   #side-nav,

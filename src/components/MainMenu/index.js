@@ -18,7 +18,7 @@ class MainMenu extends Component {
 
     render() {
         const notSignIn = this.props.location.pathname !== '/signin'
-        const navbarClassName = 'sticky-top material-color text-white py-5 k-vbox shadow col-xl-2 d-xl-flex '
+        const navbarClassName = 'sticky-top material-color text-white py-3 py-sm-5 k-vbox shadow col-xl-2 d-xl-flex '
             + (this.props.showNav ? 'show' : 'hide');
 
         return (
@@ -30,7 +30,7 @@ class MainMenu extends Component {
                                 <h1 id="app-title" className="mb-0">Issues</h1>
                                 <h4 id="app-subtitle" className="mb-4">Sample Dashboard</h4>
                                 <hr className="k-hr" />
-                                <h4 className="mt-5">Project</h4>
+                                <h4 className="mt-3 mt-sm-5">Project</h4>
                                 <ul className="nav nav-pills flex-column">
                                     <li className="nav-item" id="dashbaord">
                                         <NavLink to="/dashboard" className="nav-link" activeClassName="active">Dashboard</NavLink>
@@ -39,7 +39,7 @@ class MainMenu extends Component {
                                         <NavLink to="/issues" className="nav-link" activeClassName="active">Issues</NavLink>
                                     </li>
                                 </ul>
-                                <h4 className="mt-5">Account</h4>
+                                <h4 className="mt-3 mt-sm-5">Account</h4>
                                 <ul className="nav nav-pills flex-column">
                                     <li className="nav-item" id="profile">
                                         <NavLink to="/profile" className="nav-link" activeClassName="active">My Profile</NavLink>
@@ -49,7 +49,7 @@ class MainMenu extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="container mt-auto">
+                            <div className="container mt-sm-auto">
                                 <hr className="k-flex k-hr k-hr-bottom" />
                                 <div id="copy">
                                     <p>Copyright &copy; {this.state.year},<br /><a href="http://www.progress.com">Progress Software Corporation</a> and/or its subsidiaries or affiliates.</p>

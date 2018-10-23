@@ -10,7 +10,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div id="login" className="justify-content-center">
-                <div className="signin-form p-5 col-xl-3">
+                <div className="signin-form col-xl-3">
                     <div className="k-card">
                         <div className="k-card-block">
                             <form className="k-form">
@@ -21,14 +21,14 @@ class Dashboard extends Component {
                                     <InputLabel>Username</InputLabel>
                                     <Input type="text" className="form-control" />
                                 </div>
-                                <div className="form-group mb-5">
+                                <div className="form-group">
                                     <InputLabel>Password</InputLabel>
                                     <Input type="password" className="form-control" />
                                     <p className="text-xs-right small">
                                         <a>Forgot it?</a>
                                     </p>
                                 </div>
-                                <div className="form-group text-right">
+                                <div className="form-group mb-0 text-right">
                                     <Button color='primary' onClick={this.login}>Log in</Button>
                                 </div>
                             </form>
