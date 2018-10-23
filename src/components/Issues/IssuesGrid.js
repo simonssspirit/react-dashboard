@@ -4,21 +4,27 @@ import { LabelCellTemplate, TitleCellTemplate, NumberCellTemplate, MilestoneCell
 import Markdown from './Markdown.js';
 
 const IssuesGrid = (props) => {
-        return (
-            <Grid
-                data={props.issues}
-                detail={RowDetailComponent}
-                expandField="expanded"
-                expandChange={props.onToggleExpand}
-                pageChange={ props.onIssuesPageChange}
-                total={props.total} skip={props.skip} scrollable={'none'} pageable={true} pageSize={props.pageSize}>
-                <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
-                <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
-                <Column field="labels" title="Labels" cell={cellWithTemplate(LabelCellTemplate)} />
-                <Column field="milestone" title="Milestone" width="200px" cell={cellWithTemplate(MilestoneCellTemplate)} />
-                <Column field="assignee" title="Assignee" width="200px" cell={cellWithTemplate(AssigneeCellTemplate)} />
-            </Grid>
-        );
+    return (
+        <Grid
+            data={props.issues}
+            detail={RowDetailComponent}
+            expandField="expanded"
+            onExpandChange={props.onToggleExpand}
+            onPageChange={props.onIssuesPageChange}
+            total={props.total}
+            skip={props.skip}
+            scrollable={'none'}
+            pageable={true}
+            pageSize={props.pageSize}
+            style={{width: '100%', overflow: 'auto'}}
+        >
+            <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
+            <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />
+            <Column field="labels" title="Labels" cell={cellWithTemplate(LabelCellTemplate)} />
+            <Column field="milestone" title="Milestone" width="200px" cell={cellWithTemplate(MilestoneCellTemplate)} />
+            <Column field="assignee" title="Assignee" width="200px" cell={cellWithTemplate(AssigneeCellTemplate)} />
+        </Grid>
+    );
 }
 
 const RowDetailComponent = (props) => {
@@ -28,39 +34,39 @@ const RowDetailComponent = (props) => {
         <div>
             <div className="row my-4">
                 <div className="col-sm-12">
-                    <span className={`badge ${badgeClass}`}>{dataItem.state }</span>
+                    <span className={`badge ${badgeClass}`}>{dataItem.state}</span>
                     <h3 className="h1">
-                        { dataItem.title }
-                        <span className="text-muted">#{ dataItem.number }</span>
+                        {dataItem.title}
+                        <span className="text-muted">#{dataItem.number}</span>
                     </h3>
                 </div>
             </div>
             <div className="row my-4">
                 <div className="col-sm-2">
                     <span className="small d-block text-muted">Created on</span>
-                    { dataItem.created_at }
+                    {dataItem.created_at}
                 </div>
                 {dataItem.closed_at !== null ?
                     (<div className="col-sm-2">
                         <span className="small d-block text-muted">Closed on</span>
-                        { dataItem.closed_at }
+                        {dataItem.closed_at}
                     </div>)
-                : null}
+                    : null}
                 <div className="col-sm-2">
                     <span className="small d-block text-muted">Milestone</span>
-                    { dataItem.milestone ? dataItem.milestone.title : '' }
+                    {dataItem.milestone ? dataItem.milestone.title : ''}
                 </div>
                 <div className="col-sm-2">
                     <span className="small d-block text-muted">Author</span>
-                    { dataItem.user.login }
+                    {dataItem.user.login}
                 </div>
-                { dataItem.assignee !== null ?
+                {dataItem.assignee !== null ?
                     (<div className="col-sm-2">
                         <span className="small d-block text-muted">Assignee</span>
-                        <img alt="assignee" src={dataItem.assignee? dataItem.assignee.avatar_url : undefined} style={{'width': '30px', 'height': '30px'}} className="img-circle" />
-                        { dataItem.assignee ? dataItem.assignee.login : '' }
+                        <img alt="assignee" src={dataItem.assignee ? dataItem.assignee.avatar_url : undefined} style={{ 'width': '30px', 'height': '30px' }} className="img-circle" />
+                        {dataItem.assignee ? dataItem.assignee.login : ''}
                     </div>)
-                : null}
+                    : null}
             </div>
             <div className="row my-4">
                 <div className="col-sm-2">

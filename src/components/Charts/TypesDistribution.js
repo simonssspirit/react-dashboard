@@ -70,39 +70,43 @@ class TypesDistribution extends Component {
         const valueAxis = { line: { visible: false }, labels: { step: 2, skip: 2 }, majorGridLines: { step: 2, skip: 2, color: '#F0F2F2' } };
 
         return (
-            <div className="card mt-4">
-                <h4 className="card-header">Types Distribution</h4>
-                <div className="row card-body pb-0 small">
-                    {
-                        this.state.seriesColors.map(button =>
-                            <a
-                                onClick={() => { this.addSeries(button) }}
-                                key={button.label}
-                                style={{ color: button.active ? button.value : this.state.initialGrey }}
-                                className="col-6 col-lg-4 col-xl-2 pb-3 comp-label">
-                                <strong>{this.props.data[button.label].length}</strong>
-                                <small>{button.label}</small>
-                            </a>
-                        )
-
-                    }
-                </div>
-                <div className="card-body">
-                    <Chart style={{ height: '300px' }}
-                        transitions={false}
-                        categoryAxis={categoryAxis}
-                        valueAxis={valueAxis}>
-                        <ChartArea background={"white"}/>
-                        <ChartSeries>
-                            {series}
-                        </ChartSeries>
-                        <ChartValueAxis>
-                            <ChartValueAxisItem {...valueAxis}/>
-                        </ChartValueAxis>
-                        <ChartCategoryAxis>
-                            <ChartCategoryAxisItem {...categoryAxis} />
-                        </ChartCategoryAxis>
-                    </Chart>
+            <div className="k-card">
+            <h2 className="k-card-header">Types Distribution</h2>
+                <div className="k-card-body height-1">
+                    <div className="row">
+                        {
+                            this.state.seriesColors.map(button =>
+                                <div
+                                    onClick={() => { this.addSeries(button) }}
+                                    key={button.label}
+                                    style={{ color: button.active ? button.value : this.state.initialGrey }}
+                                    className="col-6 col-sm-4 col-xl-2 comp-label"
+                                >
+                                    <div className="issues-count">{this.props.data[button.label].length}</div>
+                                    <div className="issues-label">{button.label}</div>
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div className="row">
+                        <div className="col-12 types-distribution">
+                            <Chart style={{ height: '300px' }}
+                                transitions={false}
+                                categoryAxis={categoryAxis}
+                                valueAxis={valueAxis}>
+                                <ChartArea background={"white"}/>
+                                <ChartSeries>
+                                    {series}
+                                </ChartSeries>
+                                <ChartValueAxis>
+                                    <ChartValueAxisItem {...valueAxis}/>
+                                </ChartValueAxis>
+                                <ChartCategoryAxis>
+                                    <ChartCategoryAxisItem {...categoryAxis} />
+                                </ChartCategoryAxis>
+                            </Chart>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

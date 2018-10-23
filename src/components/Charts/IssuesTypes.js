@@ -17,7 +17,7 @@ class IssuesTypes extends Component {
                 }
             },
             donutLabel: sevlow.type,
-            donutPercent: Math.round(sevlow.value * 100 || 0) + '%',
+            donutPercent: Math.round(sevlow.value * 100 || 0),
             hoverColor: 'rgb(252, 81, 8)'
         }
 
@@ -32,20 +32,25 @@ class IssuesTypes extends Component {
             let sevlow = props.data.find(series => series.type === 'SEV: LOW');
             this.setState({
                 value: sevlow.value,
-                donutPercent: Math.round(sevlow.value * 100 || 0) + '%',
+                donutPercent: Math.round(sevlow.value * 100 || 0),
             })
             this.didInit = true;
         }
     }
+    donutCenterRender = (e) => {
+        return (<div className="comp-label chart-label" style={{ color: this.state.hoverColor }}>
+            <div className="issues-count">{this.state.donutPercent} <span className="percentage">%</span></div>
+            <div className="issues-label">{this.state.donutLabel}</div>
+        </div>)
+    }
+
     render() {
         return (
-            <div className="card issue-types mt-4">
-                <h4 className="card-header">Issue Types</h4>
-                <div className="card-body">
-                    <IssuesTypeChart data={this.props.data} seriesHover={this.seriesHover} />
-                    <div className="comp-label chart-label" style={{ color: this.state.hoverColor }}>
-                        <strong>{this.state.donutPercent}</strong>
-                        <small>{this.state.donutLabel}</small>
+            <div className="k-card">
+                <h2 className="k-card-header">Issue Types</h2>
+                <div className="k-card-body height-1">
+                    <div className="issue-types">
+                        <IssuesTypeChart data={this.props.data} seriesHover={this.seriesHover} donutCenterRender={this.donutCenterRender} />
                     </div>
                 </div>
             </div>
