@@ -1,32 +1,33 @@
 #issues {
-    .k-grid {
-        margin-top: 2rem;
-        overflow: hidden;
-        border-radius: 5px;
-        box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
-        border: 1px solid #e8e8e8;;
+  .k-grid {
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .badge {
+    margin-right: 0.2rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .issue-status {
+    margin-right: 0.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+
+    &.issue-closed {
+      background-image: url("assets/issue-closed.png");
     }
 
-    .badge {
-        margin-right: .2rem;
-        font-weight: bold;
-        border-radius: .25rem;
-        font-size: .75rem;
+    &.issue-open {
+      background-image: url("assets/issue-open.png");
     }
-
-    .issue-status {
-        margin-right: .2rem;
-        display: inline-block;
-        vertical-align: middle;
-        width: 16px;
-        height: 16px;
-
-        &.issue-closed {
-            background-image: url('assets/issue-closed.png');
-        }
-
-        &.issue-open {
-            background-image: url('assets/issue-open.png');
-        }
-    }
+  }
 }

@@ -16,6 +16,7 @@ const IssuesGrid = (props) => {
             scrollable={'none'}
             pageable={true}
             pageSize={props.pageSize}
+            className="k-shadow"
         >
             <Column field="number" title="ID" width="80px" cell={cellWithTemplate(NumberCellTemplate)} />
             <Column field="title" title="Title" cell={cellWithTemplate(TitleCellTemplate)} />

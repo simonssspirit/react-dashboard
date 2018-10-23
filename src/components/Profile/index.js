@@ -94,9 +94,9 @@ class Profile extends Component {
                 <div className="row">
                     <div className="col-md-7">
 
-                        <div className="card" id="profile">
-                            <h2 className="card-header">Public Profile</h2>
-                            <div className="card-body">
+                        <div className="k-card" id="profile">
+                            <h2 className="k-card-header">Public Profile</h2>
+                            <div className="k-card-body">
                                 <div className="row">
                                     <div className="col-md-3 text-xs-center">
                                         <img src={this.state.avatar_url} alt="Avatar URL" style={{ 'maxWidth': '100%' }} className="img-circle img-large" />
@@ -143,9 +143,9 @@ class Profile extends Component {
                             </div>
                         </div>
 
-                        <div className="card" id="delete-account">
-                            <h2 className="card-header">Delete Account</h2>
-                            <div className="card-body">
+                        <div className="k-card" id="delete-account">
+                            <h2 className="k-card-header">Delete Account</h2>
+                            <div className="k-card-body">
                                 <p>You will immediately lose access to your repositories and all other information associated with your account.
                                 <strong>This cannot be undone!</strong>
                                 </p>
@@ -156,9 +156,9 @@ class Profile extends Component {
                     </div>
 
                     <div className="col-md-5">
-                        <div className="card" id="notifications">
-                            <h2 className="card-header">Notifications</h2>
-                            <div className="card-body">
+                        <div className="k-card" id="notifications">
+                            <h2 className="k-card-header">Notifications</h2>
+                            <div className="k-card-body">
                                 <h4 >Automatically watch repositories?</h4>
                                 <h3 className="text-muted">When you are given push access to a repository, automatically receive notifications for it.</h3>
                                 <p>
@@ -174,9 +174,9 @@ class Profile extends Component {
                                 </p>
                             </div>
                         </div>
-                        <div className="card" id="password">
-                            <h2 className="card-header">Update password</h2>
-                            <div className="card-body">
+                        <div className="k-card" id="password">
+                            <h2 className="k-card-header">Update password</h2>
+                            <div className="k-card-body">
                                 <div className="form-group">
                                     <InputLabel >Old password</InputLabel>
                                     <Input type="password" className="form-control" />

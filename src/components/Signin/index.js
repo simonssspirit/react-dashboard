@@ -9,19 +9,19 @@ class Dashboard extends Component {
     }
     render() {
         return (
-            <div id="login" className="row justify-content-center">
+            <div id="login" className="justify-content-center">
                 <div className="signin-form p-5 col-xl-3">
-                    <div className="card">
-                        <div className="card-block">
+                    <div className="k-card">
+                        <div className="k-card-block">
                             <form className="k-form">
-                                <h1 id="app-title" className="mb-0">REACT DASHBOARD</h1>
-                                <h4 id="app-subtitle" className="mb-4">Login Form</h4>
+                                <h1 id="app-title" className="mb-0">Issues</h1>
+                                <h4 id="app-subtitle" className="mb-4">Sample Dashboard</h4>
                                 <hr className="k-hr" />
-                                <div className="form-group mt-4">
+                                <div className="form-group mt-5">
                                     <InputLabel>Username</InputLabel>
                                     <Input type="text" className="form-control" />
                                 </div>
-                                <div className="form-group mb-4">
+                                <div className="form-group mb-5">
                                     <InputLabel>Password</InputLabel>
                                     <Input type="password" className="form-control" />
                                     <p className="text-xs-right small">

@@ -1,41 +1,51 @@
 #login {
-    .signin-form {
-        margin: auto;
-        text-align: left;
-        border: none;
-    }
+  .k-form {
+    height: 450px;
+  }
+  .signin-form {
+    margin: auto;
+    text-align: left;
+    border: none;
+  }
 
-    h1 {
-        color: $primary;
-    }
+  h1 {
+    color: $primary;
+  }
 
-    a {
-        color: $secondary;
-    }
+  a {
+    color: $secondary;
+  }
+  .form-group {
+    margin-bottom: 3rem;
+  }
 
-    #app-subtitle {
-        color: rgba($black, 1);
-        font-weight: 400;
-    }
+  label {
+    margin: 0;
+  }
 
-    #app-title,
-    #app-subtitle {
-        letter-spacing: 2px;
-    }
+  #app-subtitle {
+    color: rgba($black, 1);
+    font-weight: 400;
+  }
 
-    .k-hr {
-        background-color: $secondary;
-        height: 0.25rem;
-        width: 2rem;
-        margin:0;
+  #app-title,
+  #app-subtitle {
+    letter-spacing: 2px;
+  }
 
-        &.k-hr-bottom {
-            margin-top: auto;
-            margin-bottom: 1rem;
-        }
-    }
+  .k-hr {
+    background-color: $secondary;
+    height: 2px;
+    width: 2rem;
+    margin: 0;
 
-    .card {
-        min-height: 300px;
+    &.k-hr-bottom {
+      margin-top: auto;
+      margin-bottom: 1rem;
     }
+  }
+
+  .k-card {
+    min-height: 300px;
+  }
 }

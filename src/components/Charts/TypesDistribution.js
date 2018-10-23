@@ -70,9 +70,9 @@ class TypesDistribution extends Component {
         const valueAxis = { line: { visible: false }, labels: { step: 2, skip: 2 }, majorGridLines: { step: 2, skip: 2, color: '#F0F2F2' } };
 
         return (
-            <div className="card">
-            <h2 className="card-header">Types Distribution</h2>
-                <div className="card-body height-1">
+            <div className="k-card">
+            <h2 className="k-card-header">Types Distribution</h2>
+                <div className="k-card-body height-1">
                     <div className="row">
                         {
                             this.state.seriesColors.map(button =>
@@ -80,7 +80,7 @@ class TypesDistribution extends Component {
                                     onClick={() => { this.addSeries(button) }}
                                     key={button.label}
                                     style={{ color: button.active ? button.value : this.state.initialGrey }}
-                                    className="col-6 col-lg-4 col-xl-2 comp-label"
+                                    className="col-4 col-xl-2 comp-label"
                                 >
                                     <div className="issues-count">{this.props.data[button.label].length}</div>
                                     <div className="issues-label">{button.label}</div>

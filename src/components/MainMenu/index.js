@@ -19,7 +19,7 @@ class MainMenu extends Component {
     render() {
         const notSignIn = this.props.location.pathname !== '/signin'
         const navbarClassName = 'sticky-top material-color text-white py-5 k-vbox shadow col-xl-2 d-xl-flex '
-            + (this.props.showNav ? 'show' : 'collapse');
+            + (this.props.showNav ? 'show' : 'hide');
 
         return (
             <div id="app" className="app">

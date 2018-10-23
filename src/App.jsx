@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { issuesFetched, issuesReceived, issuesDetails } from './actions';
 import MainMenu from './components/MainMenu';
+import { classNames } from '@progress/kendo-react-common';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
@@ -63,11 +64,20 @@ class App extends Component {
 
   render() {
     const showNav = this.state.showNav;
+    const className = classNames('navbar sticky-top bg-white d-xl-none', {
+      'k-shadow': !showNav
+    });
 
     return (
       <React.Fragment>
-        <div className="navbar sticky-top bg-white d-xl-none">
-          <a onClick={this.handleClick} className="navbar-btn" data-toggle="collapse" data-target="#side-nav" aria-controls="side-nav" >&nbsp</a>
+        <div className={className}>
+          <div onClick={this.handleClick} className={showNav ? 'open' : 'closed'} id="nav-icon" data-toggle="collapse" data-target="#side-nav" aria-controls="side-nav" >
+            {/* Using dummy span elements for animating the 'hamburger' menu */}
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
         </div>
         {this.state.loading ? <span className="k-icon k-i-loading"></span> : <MainMenu {...this.props} showNav={showNav} />}
       </React.Fragment>

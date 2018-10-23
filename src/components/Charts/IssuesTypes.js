@@ -46,9 +46,9 @@ class IssuesTypes extends Component {
 
     render() {
         return (
-            <div className="card">
-                <h2 className="card-header">Issue Types</h2>
-                <div className="card-body height-1">
+            <div className="k-card">
+                <h2 className="k-card-header">Issue Types</h2>
+                <div className="k-card-body height-1">
                     <div className="issue-types">
                         <IssuesTypeChart data={this.props.data} seriesHover={this.seriesHover} donutCenterRender={this.donutCenterRender} />
                     </div>
